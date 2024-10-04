@@ -9,10 +9,25 @@
     box-sizing: border-box;
 }
 
+[icon-button] {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    transition: box-shadow .1s linear;
+}
+
+[icon-button]:hover {
+    box-shadow: 0 0 40px -10px #1a1a1a;
+}
+
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-optical-sizing: auto;
     background-color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 body > header {
@@ -39,14 +54,8 @@ nav ol {
         align-items: center;
         gap: 20px;
         font-size: 18px;
-        padding: 10px;
         border-radius: 10px;
         transition: box-shadow .1s linear;
-    }
-
-    li:last-child:hover {
-        cursor: pointer;
-        box-shadow: 0 0 40px -10px #1a1a1a;
     }
 }
 
@@ -55,26 +64,37 @@ nav ol {
     filter: invert(1);
 }
 
+main {
+    width: 100%;
+}
+
 #products {
-    width: fit-content;
     margin: 4em auto;
+    width: fit-content;
     display: grid;
     grid-template-columns: repeat(3, auto);
+    justify-content: center;
     gap: 2em;
 }
 
 .product-card {
     width: 300px;
 
+    header {
+        max-height: 200px;
+        margin-bottom: 1em;
+    }
+
     header img {
         border-radius: 10px;
+        max-height: 200px;
     }
 }
 
 .product-card main {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1em;
 }
 
 #buy-button {
@@ -83,11 +103,17 @@ nav ol {
     border: 0;
     cursor: pointer;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: box-shadow .1s linear;
 }
 
 #buy-button:hover {
-    background-color: #1a1a1a;
+    background-color: #494949;
     color: var(--white);
+}
+
+#buy-button:active {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 40px gray;
 }
 
 #footer-container {
@@ -105,14 +131,29 @@ nav ol {
     gap: 1em;
 }
 
-#social-networks div {
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 10px;
-    transition: box-shadow .1s linear;
-
+@media (width < 992px) {
+    #products {
+        grid-template-columns: repeat(2, auto);
+    }
 }
 
-#social-networks div:hover {
-    box-shadow: 0 0 40px -10px #1a1a1a;
+@media (width < 660px) {
+    .product-card {
+        width: 240px;
+    }
+
+    #footer-container {
+        flex-direction: column;
+        gap: 1em;
+    }
+}
+
+@media (width < 552px) {
+    #products {
+        grid-template-columns: repeat(1, auto);
+    }
+
+    .product-card {
+        width: 300px;
+    }
 }
