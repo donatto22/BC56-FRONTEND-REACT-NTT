@@ -40,6 +40,33 @@ img {
     pointer-events: none;
 }
 
+#search {
+    width: clamp(200px, 80%, 500px);
+    background-color: rgb(240, 240, 240);
+    padding-right: 20px;
+}
+
+#search form {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+}
+
+#search input {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    outline: none;
+}
+
+#search button {
+    border: 0;
+    background-color: transparent;
+}
+
 nav ol {
     width: var(--width);
     margin: 0 auto;
