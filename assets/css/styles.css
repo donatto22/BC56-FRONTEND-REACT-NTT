@@ -41,7 +41,7 @@ nav ol {
         font-size: 18px;
         padding: 10px;
         border-radius: 10px;
-        transition: box-shadow .05s linear;
+        transition: box-shadow .1s linear;
     }
 
     li:last-child:hover {
@@ -87,5 +87,32 @@ nav ol {
 
 #buy-button:hover {
     background-color: #1a1a1a;
-    color: var(--white)
+    color: var(--white);
+}
+
+#footer-container {
+    width: var(--width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1a1a1a;
+    padding: 2em 0;
+}
+
+#social-networks {
+    display: flex;
+    gap: 1em;
+}
+
+#social-networks div {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    transition: box-shadow .1s linear;
+
+}
+
+#social-networks div:hover {
+    box-shadow: 0 0 40px -10px #1a1a1a;
 }
