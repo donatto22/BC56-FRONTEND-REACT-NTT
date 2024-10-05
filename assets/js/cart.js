@@ -1,4 +1,4 @@
-import { getItem, setItem } from './useLocalStorage.js'
+import { getItem, removeItem, setItem } from './useLocalStorage.js'
 
 const cart = document.getElementById('cart')
 const counter = cart.querySelector('p')
@@ -19,4 +19,9 @@ export const verifyCounter = () => {
     if(cartCounter) {
         counter.textContent = cartCounter
     }
+}
+
+export const clearCart = () => {
+    removeItem('cartCounter')
+    counter.textContent = '0'
 }
