@@ -1,32 +1,63 @@
-const PRODUCTS = 'https://dummyjson.com/products'
-const CATEGORIES = 'https://dummyjson.com/products/categories'
+/**
+ * @typedef { Object } Product 
+ * @property { Number } id
+ * @property { string } title
+ * @property { string } description
+ * @property { Number } price
+ * @property { string } thumbnail
+*/
 
-const get = async (endpoint) => {
-    let data = null
+/**
+ * @param { Product } product 
+ */
+const createProductCard = (product) => {
+    const card = document.createElement('article') // the entire card
+    card.classList.add('product-card')
+    card.id = product.id
 
-    const api = await fetch(endpoint)
+    const image = document.createElement('img') // product image
+    image.src = product.thumbnail
 
-    if(!api.ok) throw new Error('Error al recolectar datos: ' + api.status)
+    const title = document.createElement('h3') // product name
+    title.textContent = product.title
 
-    data = await api.json()
+    const description = document.createElement('p')
+    description.textContent = product.description
 
-    return data
+    const price = document.createElement('div')
+    price.textContent =`$/. ${product.price}`
+
+    const actionButton = document.createElement('button')
+    actionButton.textContent = 'Comprar'
+    actionButton.classList.add('buy-button')
+
+    // header and main
+    const headerCard = document.createElement('header')
+    headerCard.appendChild(image)
+
+    const mainCard = document.createElement('main')
+    mainCard.appendChild(title)
+    mainCard.appendChild(description)
+    mainCard.appendChild(price)
+    mainCard.appendChild(actionButton)
+
+    // adding all to the card
+    card.appendChild(headerCard)
+    card.appendChild(mainCard)
+
+    return card
 }
 
-export const createProductCard = () => {
-    console.log(123)
-}
+/**
+ * @param { Array } products 
+ * @param { string } elementId
+ */
+export const renderProducts = (products, elementId) => {
+    const div = document.getElementById(elementId)
 
-export const getCategories = async () => {
-    let categories = null
-    categories = await get(CATEGORIES)
-
-    return { categories }
-}
-
-export const getProducts = async () => {
-    let products = null
-    products = await get(PRODUCTS)
-
-    return { products }
+    products.products.forEach((p) => {
+        console.log(p)
+        const card = createProductCard(p)
+        div.appendChild(card)
+    })
 }

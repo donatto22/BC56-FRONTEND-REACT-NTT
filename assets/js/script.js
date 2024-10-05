@@ -1,4 +1,6 @@
-import { getCategories } from './functions.js'
+import { getCategories, getProducts } from './api.js'
+import { renderProducts } from './functions.js'
 
-const { categories } = await getCategories()
-console.log(categories)
+const { products } = await getProducts()
+
+renderProducts(products, 'products')
