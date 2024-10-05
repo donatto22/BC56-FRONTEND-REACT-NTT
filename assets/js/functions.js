@@ -1,3 +1,5 @@
+import { addToCart } from './cart.js'
+
 /**
  * @typedef { Object } Product 
  * @property { Number } id
@@ -30,6 +32,9 @@ const createProductCard = (product) => {
     const actionButton = document.createElement('button')
     actionButton.textContent = 'Comprar'
     actionButton.classList.add('buy-button')
+    actionButton.addEventListener('click', () => {
+        addToCart()
+    })
 
     // header and main
     const headerCard = document.createElement('header')
