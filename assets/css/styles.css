@@ -32,6 +32,7 @@ body {
 
 body > header {
     position: sticky;
+    z-index: 10;
     top: 0;
     backdrop-filter: blur(20px);
 }
@@ -93,11 +94,70 @@ nav ol {
 
 main {
     width: 100%;
+    margin: 4em 0;
+}
+
+#filters {
+    width: var(--width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+}
+
+#input {
+    background-color: #fff;
+    width: 300px;
+    padding: 1em;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#category {
+    position: relative;
+}
+
+#input {
+    cursor: pointer;
+}
+
+#category img {
+    width: 20px;
+}
+
+#categories {
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 100px #e2e2e2;
+    max-height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    display: none;
+}
+
+.cat-open {
+    display: block !important;
+}
+
+.cat {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cat:hover {
+    background-color: #1a1a1a;
+    color: var(--white);
 }
 
 #products {
-    margin: 4em auto;
-    width: fit-content;
+    margin: 1em auto 0;
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: center;

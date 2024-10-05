@@ -5,7 +5,5 @@
 ✅ No usar innerHTML
 ✅ El botón de carrito incrementa por cada click que se compren los productos
 ✅ Caja de busqueda filtra los productos a medida que uno escribe
-
-### Pending
-⌚ Cargar las categorías en el desplegable de categorías
-⌚ Lógica que permita filtrar los productos en base a la categoría seleccionada
+✅ Cargar las categorías en el desplegable de categorías
+✅ Lógica que permita filtrar los productos en base a la categoría seleccionada

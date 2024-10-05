@@ -26,3 +26,13 @@ export const getProducts = async () => {
 
     return { products }
 }
+
+/**
+ * @param { string } category 
+ */
+export const getProductByCategory = async (category) => {
+    let products = null
+    products = await get(`${PRODUCTS}/category/${category}`)
+
+    return { products }
+}

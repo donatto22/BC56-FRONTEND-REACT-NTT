@@ -67,7 +67,6 @@ export const renderProducts = (products, elementId) => {
     }
 
     products.products.forEach((p) => {
-        console.log(p)
         const card = createProductCard(p)
         div.appendChild(card)
     })
