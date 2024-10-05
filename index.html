@@ -18,7 +18,10 @@
 
                 <li id="search">
                     <form>
-                        <input type="text" name="search" placeholder="Camara, Perfume...">
+                        <input list="productsList" name="buscador" id="buscador" placeholder="Camara, perfume">
+
+                        <datalist id="productsList">
+                        </datalist>
                         <button type="submit"><img width="20px" src="./assets/icons/search-outline.svg" alt="Search icon"></button>
                     </form>
                 </li>

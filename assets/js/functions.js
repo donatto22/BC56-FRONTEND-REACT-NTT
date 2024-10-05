@@ -72,3 +72,18 @@ export const renderProducts = (products, elementId) => {
         div.appendChild(card)
     })
 }
+
+/**
+ * @param { Array } products 
+ * This function add the product list to the Datalist on the input to find some product
+ */
+export const renderProductList = (products) => {
+    const datalist = document.getElementById('productsList')
+
+    products.products.forEach(p => {
+        const option = document.createElement('option')
+        option.value = p.title
+
+        datalist.appendChild(option)
+    })
+}
