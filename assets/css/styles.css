@@ -134,15 +134,12 @@ main {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 #category {
     position: relative;
     user-select: none;
-}
-
-#input {
-    cursor: pointer;
 }
 
 #category img {
