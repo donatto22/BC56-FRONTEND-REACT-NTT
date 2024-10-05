@@ -54,6 +54,12 @@ const createProductCard = (product) => {
  */
 export const renderProducts = (products, elementId) => {
     const div = document.getElementById(elementId)
+    
+    // each time we change category, it will remove the content before
+    // add more products
+    while(div.firstChild) {
+        div.removeChild(div.firstChild)
+    }
 
     products.products.forEach((p) => {
         console.log(p)

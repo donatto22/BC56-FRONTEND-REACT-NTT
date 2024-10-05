@@ -70,7 +70,7 @@ img {
 nav ol {
     width: var(--width);
     margin: 0 auto;
-    padding: .4em 0;
+    padding: 1em 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -113,6 +113,9 @@ main {
 
     header img {
         border-radius: 10px;
+        width: 200px;
+        display: block;
+        margin: auto;
     }
 }
 
