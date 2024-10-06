@@ -14,3 +14,8 @@
 ✔️ Cargar las categorías en el desplegable de categorías
 
 ✔️ Lógica que permita filtrar los productos en base a la categoría seleccionada
+
+### Technologies Used
+- Javascript
+- HTML5 & CSS3
+- Fetch API
