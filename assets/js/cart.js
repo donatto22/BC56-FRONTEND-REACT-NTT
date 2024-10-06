@@ -19,9 +19,13 @@ export const verifyCounter = () => {
     if(cartCounter) {
         counter.textContent = cartCounter
     }
+
+    document.getElementById('cart-option').addEventListener('click', () => {
+        clearCart()
+    })
 }
 
-export const clearCart = () => {
+const clearCart = () => {
     removeItem('cartCounter')
     counter.textContent = '0'
 }
