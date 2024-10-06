@@ -96,3 +96,19 @@ export const setLoading = (isLoading) => {
     
     isLoading ? divLoading.style.display = 'block' : divLoading.style.display = 'none'
 }
+
+export const filterProductsBySearch = () => {
+    const input = document.getElementById('buscador')
+    const productos = document.querySelectorAll('.product-card')
+
+    input.addEventListener('input', () => {
+        console.log(input.value)
+        productos.forEach(p => {
+            const productName = p.querySelector('h3').textContent.toLowerCase()
+
+            if(productName.includes(input.value.toLowerCase())) {
+                p.style.display = 'block'
+            } else p.style.display = 'none'
+        })
+    })
+}

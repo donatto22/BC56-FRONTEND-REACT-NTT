@@ -1,7 +1,7 @@
 import { getCategories, getProducts } from './api.js'
 import { verifyCounter } from './cart.js'
 import { addToggleCategories, renderCategories } from './category.js'
-import { renderProductList, renderProducts, setLoading } from './functions.js'
+import { filterProductsBySearch, renderProductList, renderProducts, setLoading } from './functions.js'
 
 const { products } = await getProducts()
 const { categories } = await getCategories()
@@ -21,3 +21,5 @@ addToggleCategories()
 renderProducts(products, 'products')
 
 setLoading(false)
+
+filterProductsBySearch()
