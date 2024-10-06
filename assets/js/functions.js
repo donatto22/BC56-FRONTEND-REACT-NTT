@@ -1,5 +1,7 @@
 import { addToCart } from './cart.js'
 
+const productsCounter = document.getElementById('productsCounter')
+
 /**
  * @typedef { Object } Product 
  * @property { Number } id
@@ -61,7 +63,6 @@ const createProductCard = (product) => {
 export const renderProducts = (products, elementId) => {
     const div = document.getElementById(elementId)
 
-    const productsCounter = document.getElementById('productsCounter')
     productsCounter.textContent = `Total de productos: ${products.products.length}`
     
     // each time we change category, it will remove the content before
@@ -99,10 +100,18 @@ export const setLoading = (isLoading) => {
 
 export const filterProductsBySearch = () => {
     const input = document.getElementById('buscador')
-    const productos = document.querySelectorAll('.product-card')
 
     input.addEventListener('input', () => {
-        console.log(input.value)
+        const regex = /^[a-zA-ZñÑ\s]*$/
+
+        if (!regex.test(input.value)) {
+            // if doesnt match it will delete the last character we put
+            input.value = input.value.slice(0, -1)
+            return
+        }
+
+        const productos = document.querySelectorAll('.product-card')
+        
         productos.forEach(p => {
             const productName = p.querySelector('h3').textContent.toLowerCase()
 
