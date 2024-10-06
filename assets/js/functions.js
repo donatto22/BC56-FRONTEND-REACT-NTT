@@ -19,6 +19,7 @@ const createProductCard = (product) => {
 
     const image = document.createElement('img') // product image
     image.src = product.thumbnail
+    image.loading = 'lazy'
 
     const title = document.createElement('h3') // product name
     title.textContent = product.title
