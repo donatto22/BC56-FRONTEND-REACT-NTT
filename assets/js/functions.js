@@ -59,6 +59,9 @@ const createProductCard = (product) => {
  */
 export const renderProducts = (products, elementId) => {
     const div = document.getElementById(elementId)
+
+    const productsCounter = document.getElementById('productsCounter')
+    productsCounter.textContent = `Total de productos: ${products.products.length}`
     
     // each time we change category, it will remove the content before
     // add more products
@@ -85,4 +88,10 @@ export const renderProductList = (products) => {
 
         datalist.appendChild(option)
     })
+}
+
+export const setLoading = (isLoading) => {
+    const divLoading = document.getElementById('loading')
+    
+    isLoading ? divLoading.style.display = 'block' : divLoading.style.display = 'none'
 }

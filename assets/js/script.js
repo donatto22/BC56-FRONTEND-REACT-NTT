@@ -1,10 +1,12 @@
 import { getCategories, getProducts } from './api.js'
 import { verifyCounter } from './cart.js'
 import { addToggleCategories, renderCategories } from './category.js'
-import { renderProductList, renderProducts } from './functions.js'
+import { renderProductList, renderProducts, setLoading } from './functions.js'
 
 const { products } = await getProducts()
 const { categories } = await getCategories()
+
+setLoading(true)
 
 // verify if there is already a cart counter
 verifyCounter()
@@ -17,3 +19,5 @@ renderCategories(categories)
 addToggleCategories()
 
 renderProducts(products, 'products')
+
+setLoading(false)
