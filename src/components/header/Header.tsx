@@ -1,9 +1,9 @@
 import './header.css'
 
 const Header = () => {
-  return (
-    <div>Header</div>
-  )
+    return (
+        <div>Hola</div>
+    )
 }
 
 export default Header

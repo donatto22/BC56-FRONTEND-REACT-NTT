@@ -1,9 +1,9 @@
 import './footer.css'
 
 const Footer = () => {
-  return (
-    <div>Footer</div>
-  )
+    return (
+        <div>a</div>
+    )
 }
 
 export default Footer
