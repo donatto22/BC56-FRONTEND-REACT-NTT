@@ -1,4 +1,5 @@
 import { render } from "@helpers/render"
+import { renderProducts } from "./utils/products"
 
 const app = document.getElementById('app')
 
