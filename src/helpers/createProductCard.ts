@@ -1,3 +1,5 @@
+import { addToCart } from "@utils/cart"
+
 export const createProductCard = (product: Product) => {
     const card = document.createElement('article') // the entire card
     card.classList.add('product-card')
@@ -19,9 +21,9 @@ export const createProductCard = (product: Product) => {
     const actionButton = document.createElement('button')
     actionButton.textContent = 'Comprar'
     actionButton.classList.add('buy-button')
-    // actionButton.addEventListener('click', () => {
-    //     addToCart()
-    // })
+    actionButton.addEventListener('click', () => {
+        addToCart(document.getElementById('cart'))
+    })
 
     // header and main
     const headerCard = document.createElement('header')

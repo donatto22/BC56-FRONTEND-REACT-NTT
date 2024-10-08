@@ -4,6 +4,12 @@ import { getProducts, renderProducts } from "./products"
 
 const { get } = useFetch()
 
+const getCategories = async () => {
+    const categories = await get(API_ENDPOINTS.CATEGORIES)
+    
+    return { categories }
+}
+
 const addToggleCategories = (input: HTMLElement, list: HTMLElement) => {
     input.addEventListener('click', () => {
         list.classList.toggle('cat-open')
@@ -17,12 +23,6 @@ const addToggleCategories = (input: HTMLElement, list: HTMLElement) => {
     })
 }
 
-const getCategories = async () => {
-    const categories = await get(API_ENDPOINTS.CATEGORIES)
-    
-    return { categories }
-}
-
 const changeCategory = async (input: HTMLElement, category: string, slug: string) => {
     input.querySelector('p').textContent = category
 
@@ -34,6 +34,8 @@ const changeCategory = async (input: HTMLElement, category: string, slug: string
 const renderCategories = async () => {
     const categoriesList = document.getElementById('categories')
     const categoriesInput = document.getElementById('input')
+
+    if(!categoriesInput) throw new Error('No existe el dropdown de categories')
 
     const { categories } = await getCategories()
     
