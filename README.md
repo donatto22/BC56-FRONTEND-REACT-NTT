@@ -9,6 +9,5 @@
 
 ✔️ Patrón Mappers (Opcional)
 
-### Pending
-🕒 Migrar Javascript a Typescript
+✔️ Migrar Javascript a Typescript
 
