@@ -2,6 +2,10 @@
 
 This is a simple store in different version with different tools and languages.
 
+> [!NOTE]
+> After cloning, you can get all remote branches with the following command `git fetch all` <br/>
+> Or you can clone all with `git clone --mirror [repo url]`
+
 <hr/>
 
 ### Phases
@@ -14,4 +18,3 @@ You can see here the different versions of the same project idea.
 5. React Implementation `feature/react-implementacion`
 6. Unit test `feature/pruebas-unitarias`
 7. Integrative Project `feature/proyecto-integrador`
-
