@@ -1,5 +1,5 @@
 import { API_ENDPOINTS } from "../constants/apiEndpoints"
-import useFetch from "../helpers/useFetch"
+import useFetch from "@helpers/useFetch"
 
 const { get } = useFetch()
 

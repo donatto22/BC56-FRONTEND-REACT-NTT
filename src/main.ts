@@ -1,4 +1,4 @@
-import { render } from "./helpers/render"
+import { render } from "@helpers/render"
 
 const app = document.getElementById('app')
 
