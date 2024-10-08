@@ -14,7 +14,7 @@ const getProducts = async (category?: string) => {
     }
 }
 
-const renderProducts = async (products: Product[]) => {
+const renderProducts = (products: Product[]) => {
     const productsGrid = document.getElementById('products')
 
     while(productsGrid?.firstChild) productsGrid.removeChild(productsGrid.firstChild)
@@ -25,6 +25,41 @@ const renderProducts = async (products: Product[]) => {
     })
 }
 
+const renderProductList = (products: Product[]) => {
+    const datalist = document.getElementById('productsList')
+
+    products.forEach(p => {
+        const option = document.createElement('option')
+        option.value = p.title
+
+        datalist?.appendChild(option)
+    })
+}
+
+const filterProductsBySearch = () => {
+    const input = document.getElementById('buscador') as HTMLInputElement
+
+    input.addEventListener('input', () => {
+        const regex = /^[a-zA-ZñÑ\s]*$/
+
+        if (!regex.test(input.value)) {
+            // if doesnt match it will delete the last character we put
+            input.value = input.value.slice(0, -1)
+            return
+        }
+
+        const productos = document.querySelectorAll('.product-card')
+        
+        productos.forEach(p => {
+            const productName = p.querySelector('h3').textContent.toLowerCase()
+
+            if(productName.includes(input.value.toLowerCase())) {
+                p.style.display = 'block'
+            } else p.style.display = 'none'
+        })
+    })
+}
+
 export {
-    renderProducts, getProducts
+    renderProducts, getProducts, renderProductList, filterProductsBySearch
 }
