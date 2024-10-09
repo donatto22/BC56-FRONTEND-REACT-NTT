@@ -1,10 +1,11 @@
 import { createProductCard } from "@helpers/createProductCard"
 import { API_ENDPOINTS } from "../constants/apiEndpoints"
 import useFetch from "@helpers/useFetch"
+import { validateElement } from "@helpers/validateElement"
 
 const { get } = useFetch()
 
-const getProducts = async (category?: string) => {
+const getProducts = async (category?: string): Promise<ProductResponse> => {
     if(category) {
         const { products } = await get(`${API_ENDPOINTS.PRODUCTS_BY_CATEGORY}/${category}`)
         return { products }
@@ -50,12 +51,12 @@ const filterProductsBySearch = () => {
 
         const productos = document.querySelectorAll('.product-card')
         
-        productos.forEach(p => {
-            const productName = p.querySelector('h3').textContent.toLowerCase()
+        productos.forEach((p) => {
+            const productName = validateElement(p.querySelector('h3')).textContent!.toLowerCase()
 
             if(productName.includes(input.value.toLowerCase())) {
-                p.style.display = 'block'
-            } else p.style.display = 'none'
+                (p as HTMLElement).style.display = 'block'
+            } else (p as HTMLElement).style.display = 'none'
         })
     })
 }

@@ -2,14 +2,18 @@ import { filterProductsBySearch, getProducts, renderProductList, renderProducts 
 import loadComponent from "./loadComponent"
 import { renderCategories } from "@utils/categories"
 import { verifyCounter } from "@utils/cart"
+import { validateElement } from "./validateElement"
+import { setLoading } from "./setLoading"
 
 export const render = (targetDiv: HTMLElement) => {
+    setLoading(true)
+
     setTimeout(() => {
         loadComponent('./src/components/header.html', targetDiv)
     }, 30)
     
     setTimeout(async () => {
-        verifyCounter(document.getElementById('cart')) // loading the counter
+        verifyCounter(validateElement(document.getElementById('cart'))) // loading the counter
         loadComponent('./src/components/main.html', targetDiv) // the products grid
         
         const { products } = await getProducts() 
@@ -23,4 +27,6 @@ export const render = (targetDiv: HTMLElement) => {
     setTimeout(() => {
         loadComponent('./src/components/footer.html', targetDiv)
     }, 90)
+
+    setLoading(false)
 }

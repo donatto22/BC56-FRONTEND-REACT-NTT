@@ -6,3 +6,7 @@ interface Product {
     thumbnail: string,
     price: Number
 }
+
+interface ProductResponse {
+    products: Product[]
+}

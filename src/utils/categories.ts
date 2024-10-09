@@ -4,10 +4,10 @@ import { getProducts, renderProducts } from "./products"
 
 const { get } = useFetch()
 
-const getCategories = async () => {
+const getCategories = async (): Promise<Category[]> => {
     const categories = await get(API_ENDPOINTS.CATEGORIES)
     
-    return { categories }
+    return categories
 }
 
 const addToggleCategories = (input: HTMLElement, list: HTMLElement) => {
@@ -24,20 +24,21 @@ const addToggleCategories = (input: HTMLElement, list: HTMLElement) => {
 }
 
 const changeCategory = async (input: HTMLElement, category: string, slug: string) => {
-    input.querySelector('p').textContent = category
+    input.querySelector('p')!.textContent = category
 
     const { products } = await getProducts(slug)
     
-    await renderProducts(products)
+    renderProducts(products)
 }
 
 const renderCategories = async () => {
     const categoriesList = document.getElementById('categories')
     const categoriesInput = document.getElementById('input')
 
+    if(!categoriesList) throw new Error('No existe la lista de categories')
     if(!categoriesInput) throw new Error('No existe el dropdown de categories')
 
-    const { categories } = await getCategories()
+    const categories = await getCategories()
     
     categories.forEach(c => {
         const div = document.createElement('div')

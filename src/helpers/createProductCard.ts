@@ -1,4 +1,5 @@
 import { addToCart } from "@utils/cart"
+import { validateElement } from "./validateElement"
 
 export const createProductCard = (product: Product) => {
     const card = document.createElement('article') // the entire card
@@ -22,7 +23,7 @@ export const createProductCard = (product: Product) => {
     actionButton.textContent = 'Comprar'
     actionButton.classList.add('buy-button')
     actionButton.addEventListener('click', () => {
-        addToCart(document.getElementById('cart'))
+        addToCart(validateElement(document.getElementById('cart')))
     })
 
     // header and main
