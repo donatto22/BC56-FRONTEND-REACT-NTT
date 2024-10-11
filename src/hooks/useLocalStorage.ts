@@ -19,3 +19,5 @@ const useLocalStorage = () => {
         getItem, setItem, removeItem, clear
     })
 }
+
+export default useLocalStorage
