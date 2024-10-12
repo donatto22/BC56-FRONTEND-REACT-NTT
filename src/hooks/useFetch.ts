@@ -1,7 +1,7 @@
 import { ErrorMessages } from '@types/ErrorMessages'
 
 const useFetch = () => {
-    const get = async (endpoint: string): Promise<object[]> => {
+    const get = async (endpoint: string) => {
         const result = await fetch(endpoint)
         if(!result.ok) throw new Error('No se pudo obtener los datos')
 
