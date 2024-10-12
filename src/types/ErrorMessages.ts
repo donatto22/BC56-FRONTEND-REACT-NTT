@@ -1,3 +1,5 @@
 export enum ErrorMessages {
-    NO_TOKEN = 'No existe un token para login'
+    FETCH_ERROR = 'Hubo un error al intentar fetch',
+    PRODUCTS_API_ERROR = 'No se lograron cargar los productos',
+    CATEGORIES_API_ERROR = 'No se lograron cargar las categorias'
 }

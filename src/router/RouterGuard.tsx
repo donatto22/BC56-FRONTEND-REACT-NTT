@@ -1,16 +1,13 @@
 import { Navigate, Outlet } from "react-router-dom"
 
 import useLocalStorage from "../hooks/useLocalStorage"
-import { ErrorMessages } from "../types/ErrorMessages"
 
-const RouterGuard = () => {
+const RouterGuard = (): React.JSX.Element => {
     const { getItem } = useLocalStorage()
     const token = getItem('token')
 
-    if(!token) throw new Error(ErrorMessages.NO_TOKEN)
-
     return (
-        getItem(token) ? <Outlet /> : <Navigate to='/login'/>
+        token ? <Outlet /> : <Navigate to='/login'/>
     )
 }
 
