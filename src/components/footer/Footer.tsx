@@ -9,19 +9,19 @@ const Footer = (): React.JSX.Element => {
                 </div>
 
                 <div id="social-networks">
-                    <div className="network" icon-button>
+                    <div className="network" icon-button='true'>
                         <img width="24px" src="./src/assets/icons/logo-instagram.svg" alt="Logo instagram" />
                     </div>
 
-                    <div className="network" icon-button>
+                    <div className="network" icon-button='true'>
                         <img width="24px" src="./src/assets/icons/logo-tiktok.svg" alt="Logo tiktok" />
                     </div>
 
-                    <div className="network" icon-button>
+                    <div className="network" icon-button='true'>
                         <img width="24px" src="./src/assets/icons/logo-twitter.svg" alt="Logo twitter" />
                     </div>
 
-                    <div className="network" icon-button>
+                    <div className="network" icon-button='true'>
                         <img width="24px" src="./src/assets/icons/logo-youtube.svg" alt="Logo youtube" />
                     </div>
                 </div>

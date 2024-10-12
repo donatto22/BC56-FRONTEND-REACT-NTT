@@ -1,8 +1,9 @@
-import { Category } from "@types/Category"
-import { Product, ProductResponse } from "@types/Product"
 import useFetch from "./useFetch"
+import { Category } from "@types/Category"
+import { ProductResponse } from "@types/Product"
 import { ApiEndpoints } from "@types/ApiEndpoints"
 import { DummyToken } from "@types/DummyToken"
+
 
 const useDummyjson = () => {
     const { get, post } = useFetch()
@@ -22,7 +23,7 @@ const useDummyjson = () => {
         return categories
     }
 
-    const getProductsByCategory = async (slug: string): Promise<Product[]> => {
+    const getProductsByCategory = async (slug: string): Promise<ProductResponse> => {
         const products = await get(ApiEndpoints.PRODUCTS_BY_CATEGORY + `/${slug}`)
         return products
     }
