@@ -1,10 +1,11 @@
-import useDummyjson from "@hooks/useDummyjson"
-import ProductsLayout from "../../layout/ProductsLayout"
+import { useEffect, useRef, useState } from "react"
 import './products.css'
-import { ReactEventHandler, useEffect, useRef, useState } from "react"
+
+import ProductsLayout from "../../layout/ProductsLayout"
+import useDummyjson from "@hooks/useDummyjson"
 import { Product } from "@types/Product"
-import ProductCard from "./ProductCard"
 import { Category } from "@types/Category"
+import ProductsGrid from "./productsGrid/ProductsGrid"
 
 const Products = () => {
     const { getProducts, getCategories, getProductsByCategory } = useDummyjson()
@@ -25,12 +26,12 @@ const Products = () => {
         setCategories(data)
     }
 
-    const changeCategory = async (e) => {
+    const changeCategory = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         if(categoryInputRef.current) {
             (categoryInputRef.current as Node).textContent = (e.target as Node).textContent
         }
 
-        const data = await getProductsByCategory(e.target.id)
+        const data = await getProductsByCategory((e.target as HTMLElement).id)
         setProducts(data.products)
 
         toggleCategoriesVisibility()
@@ -72,13 +73,7 @@ const Products = () => {
                     <div id="productsCounter"></div>
                 </section>
 
-                <section id="products">
-                    {
-                        products.map(p => (
-                            <ProductCard key={p.id} productName={p.title} price={p.price} imgUrl={p.thumbnail} description={p.description} />
-                        ))
-                    }
-                </section>
+                <ProductsGrid products={products}/>
             </main>
         </ProductsLayout>
     )
