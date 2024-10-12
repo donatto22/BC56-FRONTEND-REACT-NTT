@@ -10,7 +10,7 @@ const useFetch = () => {
         return data
     }
 
-    const post = async (endpoint: string, body: object): Promise<object[]> => {
+    const post = async (endpoint: string, body: object) => {
         const res = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

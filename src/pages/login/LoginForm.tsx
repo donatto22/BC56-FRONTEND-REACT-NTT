@@ -1,20 +1,18 @@
 
 import { useRef } from "react"
 
-import useFetch from "@hooks/useFetch"
 import useLocalStorage from "@hooks/useLocalStorage"
-import { ApiEndpoints } from "@types/ApiEndpoints"
-import { DummyToken } from "@types/DummyToken"
 import { useNavigate } from "react-router-dom"
+import useDummyjson from "@hooks/useDummyjson"
 
 const LoginForm = (): React.JSX.Element => {
     const formRef = useRef(null)
     const navigator = useNavigate()
 
-    const { post } = useFetch()
+    const { login } = useDummyjson()
     const { setItem } = useLocalStorage()
 
-    const login = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         if(formRef.current) {
@@ -22,15 +20,15 @@ const LoginForm = (): React.JSX.Element => {
 
             const formObject = Object.fromEntries(form.entries())
 
-            const token = await post(ApiEndpoints.LOGIN, formObject) as DummyToken
+            const { session } = await login(formObject)
             
-            setItem('token', token.accessToken)
+            setItem('token', session.accessToken)
             navigator('/')
         }
     }
 
     return (
-        <form action="" ref={formRef} onSubmit={ login }>
+        <form action="" ref={formRef} onSubmit={ handleLogin }>
             <div className="inputGroup">
                 <input required type="text" id="username" name="username" placeholder="Usuario" />
             </div>
