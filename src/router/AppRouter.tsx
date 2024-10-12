@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import RouterGuard from './RouterGuard'
 
 const Login = lazy(async () => await import('../pages/login/Login'))
-const Products = lazy(async () => await import('../pages/Products'))
+const Products = lazy(async () => await import('../pages/products/Products'))
 
 const AppRouter = (): React.JSX.Element => {
     return (

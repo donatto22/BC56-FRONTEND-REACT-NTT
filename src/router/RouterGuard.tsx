@@ -1,6 +1,6 @@
-import { Navigate, Outlet } from "react-router-dom"
+import { Navigate, Outlet } from 'react-router-dom'
 
-import useLocalStorage from "../hooks/useLocalStorage"
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const RouterGuard = (): React.JSX.Element => {
     const { getItem } = useLocalStorage()

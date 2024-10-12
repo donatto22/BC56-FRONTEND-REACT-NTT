@@ -1,0 +1,123 @@
+main {
+    width: 100%;
+    margin: 4em 0;
+}
+
+#filters {
+    width: var(--width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 10px;
+}
+
+#input {
+    background-color: #fff;
+    width: 300px;
+    padding: 1em;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+#category {
+    position: relative;
+    user-select: none;
+}
+
+#category img {
+    width: 20px;
+}
+
+#categories {
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 100px #e2e2e2;
+    max-height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    display: none;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+#categories::-webkit-scrollbar {
+    width: 10px;
+    padding: 1em;
+}
+
+#categories::-webkit-scrollbar-thumb {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+}
+
+.cat-open {
+    display: block !important;
+}
+
+.cat {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cat:hover {
+    background-color: #1a1a1a;
+    color: var(--white);
+}
+
+#products {
+    margin: 1em auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 2em;
+}
+
+.product-card {
+    width: 300px;
+
+    header {
+        margin-bottom: 1em;
+    }
+
+    header img {
+        border-radius: 10px;
+        width: 200px;
+        display: block;
+        margin: auto;
+    }
+}
+
+.product-card main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.buy-button {
+    padding: 8px 0;
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: box-shadow .1s linear;
+}
+
+.buy-button:hover {
+    background-color: #494949;
+    color: var(--white);
+}
+
+.buy-button:active {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 40px gray;
+}

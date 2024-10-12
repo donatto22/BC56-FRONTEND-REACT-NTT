@@ -1,4 +1,4 @@
-import { ErrorMessages } from "@types/ErrorMessages"
+import { ErrorMessages } from '@types/ErrorMessages'
 
 const useFetch = () => {
     const get = async (endpoint: string): Promise<object[]> => {
@@ -10,7 +10,7 @@ const useFetch = () => {
         return data
     }
 
-    const post = async (endpoint: string, body: object) => {
+    const post = async (endpoint: string, body: object): Promise<object[]> => {
         const res = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
