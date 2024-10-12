@@ -1,3 +1,9 @@
+> [!NOTE]
+> Login system works with any user from [dummyjson/users](https://dummyjson.com/docs/users#users-all)
+
+> [!WARNING]
+> You must have installed [Node](https://nodejs.org/en) and [Vite](https://es.vitejs.dev/)
+
 ### Done
 ✔️ No usar hooks que no aporten valor.
 
