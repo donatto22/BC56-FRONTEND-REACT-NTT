@@ -9,7 +9,7 @@ const ProductCard = ({ imgUrl, productName, price, description }: Required<Produ
   return (
     <article className="product-card">
       <header>
-        <img src={imgUrl} alt={productName} />
+        <img src={imgUrl} alt={productName} loading="lazy" />
       </header>
 
       <main>
