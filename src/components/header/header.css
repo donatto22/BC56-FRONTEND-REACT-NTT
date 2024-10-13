@@ -59,16 +59,19 @@ nav ol {
     filter: invert(1);
 }
 
-#cart-option {
-    font-size: 16px;
-    background-color: hsl(0, 100%, 80%);
-    border-radius: 10px;
-    padding: 10px 20px;
-    bottom: 0;
-    transition: box-shadow .1s linear;
+#cart-option, #cart-icon, #user {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+#cart-option {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: hsl(0, 100%, 80%);
+    border-radius: 10px;
+    bottom: 0;
+    transition: box-shadow .1s linear;
     cursor: pointer;
     border: 0;
     outline: none;
@@ -83,8 +86,46 @@ nav ol {
     box-shadow: 0 0 50px hsl(0, 100%, 80%);
 }
 
-#cart-icon {
+#user {
+    padding: 10px;
+    border-radius: 10px;
+    transition: box-shadow .1s linear;
+}
+
+#user {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    flex-direction: column;
+}
+
+#user-options {
+    position: absolute;
+    background-color: #fff;
+    margin-top: 2em;
+    right: 1em;
+    padding: 10px;
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 100px #e2e2e2;
+    opacity: 0;
+    transition: opacity .1s linear, display .1s linear allow-discrete;
+}
+
+#user-options > div {
+    padding: 10px 1em;
+    border-radius: 10px;
+}
+
+#user-options > div:hover {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+#user:hover {
+    box-shadow: 0 0 30px -10px #1a1a1a;
+}
+
+.options-open {
+    opacity: 1 !important;
+    display: block !important;
 }

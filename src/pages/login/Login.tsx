@@ -6,6 +6,8 @@ import logo from '@images/logo.png'
 import LoginForm from './LoginForm'
 import useLocalStorage from '@hooks/useLocalStorage'
 import { Navigate } from 'react-router-dom'
+import { Suspense } from 'react'
+import Loading from '@components/loading/Loading'
 
 const Login = (): React.JSX.Element => {
     const { getItem } = useLocalStorage()
@@ -13,14 +15,16 @@ const Login = (): React.JSX.Element => {
 
     return (
         token ? <Navigate to='/' /> : 
-        <section id='loginBackground'>
-            <div id='image' data-image={loginBg}></div>
+            <Suspense fallback={ <Loading /> }>
+                <section id='loginBackground'>
+                    <div id='image' data-image={loginBg}></div>
 
-            <div id='loginForm'>
-                <img src={logo} alt="Market logo" width={50} />
-                <LoginForm />
-            </div>
-        </section>
+                    <div id='loginForm'>
+                        <img src={logo} alt="Market logo" width={50} />
+                        <LoginForm />
+                    </div>
+                </section>
+            </Suspense>
     )
 }
 

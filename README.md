@@ -19,6 +19,5 @@
 
 ✔️ No utilizar any para los tipados.
 
-### Pending
+✔️ Debe funcionar tal cual como fue descrito en la semana de Javascript.
 
-🕒 Debe funcionar tal cual como fue descrito en la semana de Javascript.

@@ -3,14 +3,23 @@ import { Category } from "@types/Category"
 import { ProductResponse } from "@types/Product"
 import { ApiEndpoints } from "@types/ApiEndpoints"
 import { DummyToken } from "@types/DummyToken"
+import useLocalStorage from "./useLocalStorage"
+import { useNavigate } from "react-router-dom"
 
 
 const useDummyjson = () => {
     const { get, post } = useFetch()
+    const { removeItem } = useLocalStorage()
+    const navigator = useNavigate()
 
     const login = async (data: object) => {
         const session: DummyToken = await post(ApiEndpoints.LOGIN, data)
         return { session }
+    }
+
+    const logout = () => {
+        removeItem('token')
+        navigator('/login')
     }
 
     const getProducts = async (): Promise<ProductResponse> => {
@@ -29,7 +38,7 @@ const useDummyjson = () => {
     }
 
     return Object.freeze({
-        login, getProducts, getCategories, getProductsByCategory
+        login, logout, getProducts, getCategories, getProductsByCategory
     })
 }
 
