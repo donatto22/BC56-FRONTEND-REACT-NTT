@@ -28,7 +28,7 @@ const LoginForm = (): React.JSX.Element => {
     }
 
     return (
-        <form action="" ref={formRef} onSubmit={ handleLogin }>
+        <form ref={formRef} onSubmit={ handleLogin }>
             <div className="inputGroup">
                 <input required type="text" id="username" name="username" placeholder="Usuario" />
             </div>

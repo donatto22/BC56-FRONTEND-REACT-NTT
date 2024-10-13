@@ -1,24 +1,28 @@
 import { useEffect, useRef, useState } from "react"
 import './products.css'
 
-import ProductsLayout from "../../layout/ProductsLayout"
 import useDummyjson from "@hooks/useDummyjson"
 import { Product } from "@types/Product"
 import { Category } from "@types/Category"
 import ProductsGrid from "./productsGrid/ProductsGrid"
+import Header from "@components/header/Header"
+import Footer from "@components/footer/Footer"
 
 const Products = () => {
     const { getProducts, getCategories, getProductsByCategory } = useDummyjson()
 
-    const [products, setProducts] = useState<Product[]>([])
+    const [categoryFilteredProducts, setCategoryFilteredProducts] = useState<Product[]>([])
+    const [searchFilteredProducts, setSearchFilteredProducts] = useState<Product[]>([])
     const [categories, setCategories] = useState<Category[]>([])
+    const [search, setSearch] = useState<string>('')
 
     const categoriesRef = useRef(null)
     const categoryInputRef = useRef(null)
 
-    const fillProducts  = async () => {
+    const fillProducts = async () => {
         const data = await getProducts()
-        setProducts(data.products)
+        setCategoryFilteredProducts(data.products)
+        setSearchFilteredProducts(data.products)
     }
 
     const fillCategories = async () => {
@@ -27,18 +31,18 @@ const Products = () => {
     }
 
     const changeCategory = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if(categoryInputRef.current) {
+        if (categoryInputRef.current) {
             (categoryInputRef.current as Node).textContent = (e.target as Node).textContent
         }
 
         const data = await getProductsByCategory((e.target as HTMLElement).id)
-        setProducts(data.products)
-
+        setCategoryFilteredProducts(data.products)
+        setSearchFilteredProducts(data.products)
         toggleCategoriesVisibility()
     }
 
     const toggleCategoriesVisibility = () => {
-        if(categoriesRef.current) {
+        if (categoriesRef.current) {
             (categoriesRef.current as HTMLElement).classList.toggle('cat-open')
         }
     }
@@ -49,21 +53,34 @@ const Products = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    
+    const filterProducts = () => {
+        const filtered = categoryFilteredProducts.filter(p =>
+            p.title.toLowerCase().includes(search.toLowerCase())
+        )
+        setSearchFilteredProducts(filtered)
+    }
+
+    useEffect(() => {
+        filterProducts()
+    }, [search, categoryFilteredProducts])
+
     return (
-        <ProductsLayout>
+        <>
+            <Header products={searchFilteredProducts} search={search} setSearch={setSearch} />
             <main>
                 <section id="filters">
                     <div id="category">
-                        <div id="input" onClick={ toggleCategoriesVisibility }>
-                            <p ref={ categoryInputRef }>Filtrar por categoría </p>
+                        <div id="input" onClick={toggleCategoriesVisibility}>
+                            <p ref={categoryInputRef}>Filtrar por categoría </p>
                             <img src="./src/assets/icons/down.svg" alt="Arrow down" />
                         </div>
 
                         <div id="categories" ref={categoriesRef}>
                             {
                                 categories.map(c => (
-                                    <div id={c.slug} className="cat" key={c.slug} onClick={ (e) => changeCategory(e) }>
-                                        { c.name }
+                                    <div id={c.slug} className="cat" key={c.slug} onClick={(e) => changeCategory(e)}>
+                                        {c.name}
                                     </div>
                                 ))
                             }
@@ -73,9 +90,11 @@ const Products = () => {
                     <div id="productsCounter"></div>
                 </section>
 
-                <ProductsGrid products={products}/>
+                {/* Muestra los productos filtrados por búsqueda */}
+                <ProductsGrid products={searchFilteredProducts} />
             </main>
-        </ProductsLayout>
+            <Footer />
+        </>
     )
 }
 

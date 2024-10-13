@@ -1,6 +1,17 @@
+import { Product } from '@types/Product'
 import './header.css'
+import { ChangeEvent, Dispatch, SetStateAction } from 'react'
 
-const Header = (): React.JSX.Element => {
+interface Header {
+    products: Product[],
+    search: string,
+    setSearch: Dispatch<SetStateAction<string>>
+}
+
+const Header = ({ products, search, setSearch }: Header): React.JSX.Element => {
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
+    }
     return (
         <header>
             <nav>
@@ -11,9 +22,16 @@ const Header = (): React.JSX.Element => {
 
                     <li id="search">
                         <form>
-                            <input list="productsList" type="text" name="buscador" id="buscador" placeholder="Camara, perfume" />
+                            <input list="productsList" value={search} onChange={(e) => handleSearch(e)}
+                            type="text" name="buscador" id="buscador" placeholder="Camara, perfume" />
 
-                                <datalist id="productsList"></datalist>
+                                <datalist id="productsList">
+                                    {
+                                        products.map(p => (
+                                            <option key={p.id} value={p.title}></option>
+                                        ))
+                                    }
+                                </datalist>
 
                                 <button type="submit">
                                     <img width="20px" src="./src/assets/icons/search-outline.svg" alt="Search icon"/>
