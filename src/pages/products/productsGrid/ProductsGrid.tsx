@@ -1,14 +1,19 @@
-import ProductCard from "../ProductCard"
+import { lazy, Suspense } from "react"
+const ProductCard = lazy(async () => await import('../ProductCard'))
+
 import { Product } from "@types/Product"
+import Loading from "@components/loading/Loading"
 
 const ProductsGrid = ({ products }: { products: Product[] }) => {
     return (
         <section id="products">
-            {
-                products.map(p => (
-                    <ProductCard key={p.id} productName={p.title} price={p.price} imgUrl={p.thumbnail} description={p.description} />
-                ))
-            }
+            <Suspense fallback={ <Loading height='50vh'/> }>
+                {
+                    products.map(p => (
+                        <ProductCard key={p.id} productName={p.title} price={p.price} imgUrl={p.thumbnail} description={p.description} />
+                    ))
+                }
+            </Suspense>
         </section>
     )
 }
