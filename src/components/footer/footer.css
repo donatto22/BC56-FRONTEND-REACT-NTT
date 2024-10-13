@@ -23,3 +23,10 @@
 .network:hover {
     box-shadow: 0 0 30px -10px #1a1a1a;
 }
+
+@media (width < 660px) {
+    #footer-container {
+        flex-direction: column;
+        gap: 1em;
+    }
+}

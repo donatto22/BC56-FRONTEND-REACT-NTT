@@ -4,6 +4,8 @@ const ProductCard = lazy(async () => await import('../ProductCard'))
 import { Product } from "@types/Product"
 import Loading from "@components/loading/Loading"
 
+import './productsGrid.css'
+
 const ProductsGrid = ({ products }: { products: Product[] }) => {
     return (
         <section id="products">

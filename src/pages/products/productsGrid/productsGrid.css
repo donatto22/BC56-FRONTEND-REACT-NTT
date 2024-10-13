@@ -1,0 +1,21 @@
+@media (width < 992px) {
+    #products {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+@media (width < 660px) {
+    .product-card {
+        width: 240px;
+    }
+}
+
+@media (width < 552px) {
+    #products {
+        grid-template-columns: repeat(1, auto);
+    }
+
+    .product-card {
+        width: 300px;
+    }
+}
