@@ -5,6 +5,7 @@ import { ApiEndpoints } from "@types/ApiEndpoints"
 import { DummyToken } from "@types/DummyToken"
 import useLocalStorage from "./useLocalStorage"
 import { useNavigate } from "react-router-dom"
+import { startTransition } from "react"
 
 
 const useDummyjson = () => {
@@ -19,7 +20,9 @@ const useDummyjson = () => {
 
     const logout = () => {
         removeItem('token')
-        navigator('/login')
+        startTransition(() => {
+            navigator('/login')
+        })
     }
 
     const getProducts = async (): Promise<ProductResponse> => {

@@ -1,26 +1,36 @@
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 import { Product } from '@types/Product'
-import './header.css'
-import { ChangeEvent, Dispatch, SetStateAction, useRef } from 'react'
-import useDummyjson from '@hooks/useDummyjson'
 
-interface Header {
+import User from './User'
+import './header.css'
+import useLocalStorage from '@hooks/useLocalStorage'
+
+interface HeaderProps {
     products: Product[],
     search: string,
     setSearch: Dispatch<SetStateAction<string>>
 }
 
-const Header = ({ products, search, setSearch }: Header): React.JSX.Element => {
-    const userOptionsRef = useRef(null)
-    const { logout } = useDummyjson()
+const Header = ({ products, search, setSearch }: HeaderProps): React.JSX.Element => {
+    const [cartLocalCounter, setCartLocalCounter] = useState()
+    const { getItem } = useLocalStorage()
+
+    const cartCounter = useRef(null)
+
+    useEffect(() => {
+        const getCartCounter = () => {
+            const counter = getItem('cartCounter')
+            if(counter) {
+                setCartLocalCounter(counter)
+            }
+        }
+
+        getCartCounter()
+    }, [])
+
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value)
-    }
-
-    const toggleUserOptionsVisibility = () => {
-        if (userOptionsRef.current) {
-            (userOptionsRef.current as HTMLElement).classList.toggle('options-open')
-        }
     }
 
     return (
@@ -44,25 +54,19 @@ const Header = ({ products, search, setSearch }: Header): React.JSX.Element => {
                                 }
                             </datalist>
 
-                            <button type="submit">
+                            <button type='button'>
                                 <img width="20px" src="./src/assets/icons/search-outline.svg" alt="Search icon" />
                             </button>
                         </form>
                     </li>
 
                     <li>
-                        <div id="cart-icon" >
+                        <div id="cart-icon" ref={ cartCounter }>
                             <img src="./src/assets/icons/cart-outline.svg" alt="Shopping Cart Icon" width="30px" height="auto" />
-                                <p>0</p>
+                                <p> { getItem('cartCounter') } </p>
                         </div>
 
-                        <div id="user" onClick={ toggleUserOptionsVisibility }>
-                            <img src="./src/assets/icons/person-outline.svg" alt="User" width='24px' />
-                            <div id='user-options' ref={userOptionsRef}>
-                                <div>Vaciar Carrito</div>
-                                <div onClick={ logout }>Cerrar Sesión</div>
-                            </div>
-                        </div>
+                        <User cartCounter={cartCounter} />
                     </li>
                 </ol>
             </nav>

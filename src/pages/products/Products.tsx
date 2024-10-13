@@ -68,10 +68,11 @@ const Products = () => {
     return (
         <>
             <Header products={searchFilteredProducts} search={search} setSearch={setSearch} />
+
             <main>
                 <section id="filters">
                     <div id="category">
-                        <div id="input" onClick={toggleCategoriesVisibility}>
+                        <div id="input" onClick={ toggleCategoriesVisibility }>
                             <p ref={categoryInputRef}>Filtrar por categoría </p>
                             <img src="./src/assets/icons/down.svg" alt="Arrow down" />
                         </div>
@@ -93,6 +94,7 @@ const Products = () => {
                 {/* Muestra los productos filtrados por búsqueda */}
                 <ProductsGrid products={searchFilteredProducts} />
             </main>
+
             <Footer />
         </>
     )
