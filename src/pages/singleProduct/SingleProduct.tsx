@@ -11,10 +11,12 @@ import { Product } from "@types/Product"
 
 import bagIcon from '@icons/bag-outline.svg'
 import bicycleIcon from '@icons/bicycle-outline.svg'
+import { useCart } from "@context/CartContext"
 
 const SingleProduct = () => {
     const { id } = useParams()
     const { getProductById } = useDummyjson()
+    const { addToCart } = useCart()
 
     const [product, setProduct] = useState<Product>()
 
@@ -48,7 +50,7 @@ const SingleProduct = () => {
                             <h1>{product.title}</h1>
                             <p>{product.description}</p>
 
-                            <button>Comprar</button>
+                            <button onClick={ () => addToCart(product) }>Comprar</button>
 
                             <div id="tags">
                                 <div className="information-tag">
