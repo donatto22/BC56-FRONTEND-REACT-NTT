@@ -1,6 +1,6 @@
 import useFetch from "./useFetch"
 import { Category } from "@types/Category"
-import { ProductResponse } from "@types/Product"
+import { Product, ProductResponse } from "@types/Product"
 import { ApiEndpoints } from "@types/ApiEndpoints"
 import { DummyToken } from "@types/DummyToken"
 import useLocalStorage from "./useLocalStorage"
@@ -30,6 +30,11 @@ const useDummyjson = () => {
         return { products }
     }
 
+    const getProductById = async (id: string): Promise<Product> => {
+        const product = await get(ApiEndpoints.PRODUCTS + `/${id}`)
+        return { product }
+    }
+
     const getCategories = async (): Promise<Category[]> => {
         const categories = await get(ApiEndpoints.CATEGORIES)
         return categories
@@ -41,7 +46,7 @@ const useDummyjson = () => {
     }
 
     return Object.freeze({
-        login, logout, getProducts, getCategories, getProductsByCategory
+        login, logout, getProducts, getCategories, getProductsByCategory, getProductById
     })
 }
 

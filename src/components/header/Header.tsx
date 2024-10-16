@@ -5,13 +5,17 @@ import User from './User'
 import './header.css'
 import useLocalStorage from '@hooks/useLocalStorage'
 
+import logo from '@images/logo.png'
+import searchIcon from '@icons/search-outline.svg'
+import cartIcon from '@icons/cart-outline.svg'
+
 interface HeaderProps {
     products: Product[],
     search: string,
     setSearch: Dispatch<SetStateAction<string>>
 }
 
-const Header = ({ products, search, setSearch }: HeaderProps): React.JSX.Element => {
+const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JSX.Element => {
     const [cartLocalCounter, setCartLocalCounter] = useState()
     const { getItem } = useLocalStorage()
 
@@ -38,35 +42,38 @@ const Header = ({ products, search, setSearch }: HeaderProps): React.JSX.Element
             <nav>
                 <ol>
                     <li>
-                        <img id="logo" src="./src/assets/images/logo.png" alt="lockerg store logo" width="30px" height="auto" />
+                        <img id="logo" src={ logo } alt="lockerg store logo" width="30px" height="auto" />
                     </li>
 
-                    <li id="search">
-                        <form>
-                            <input list="productsList" value={search} onChange={(e) => handleSearch(e)}
-                                type="text" name="buscador" id="buscador" placeholder="Camara, perfume" />
+                    {
+                        search &&
+                        <li id="search">
+                            <form>
+                                <input list="productsList" value={search} onChange={(e) => handleSearch(e)}
+                                    type="text" name="buscador" id="buscador" placeholder="Camara, perfume" />
 
-                            <datalist id="productsList">
-                                {
-                                    products.map(p => (
-                                        <option key={p.id} value={p.title}></option>
-                                    ))
-                                }
-                            </datalist>
+                                <datalist id="productsList">
+                                    {
+                                        products && products.map(p => (
+                                            <option key={p.id} value={p.title}></option>
+                                        ))
+                                    }
+                                </datalist>
 
-                            <button type='button'>
-                                <img width="20px" src="./src/assets/icons/search-outline.svg" alt="Search icon" />
-                            </button>
-                        </form>
-                    </li>
+                                <button type='button'>
+                                    <img width="20px" src={searchIcon} alt="Search icon" />
+                                </button>
+                            </form>
+                        </li>
+                    }
 
                     <li>
                         <div id="cart-icon" ref={ cartCounter }>
-                            <img src="./src/assets/icons/cart-outline.svg" alt="Shopping Cart Icon" width="30px" height="auto" />
+                            <img src={ cartIcon } alt="Shopping Cart Icon" width="30px" height="auto" />
                                 <p> { getItem('cartCounter') } </p>
                         </div>
 
-                        <User cartCounter={cartCounter} />
+                        <User cartCounter={ cartCounter } />
                     </li>
                 </ol>
             </nav>

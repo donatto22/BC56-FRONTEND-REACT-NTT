@@ -1,5 +1,10 @@
 import './footer.css'
 
+import logoInstagram from '@icons/logo-instagram.svg'
+import logoTiktok from '@icons/logo-tiktok.svg'
+import logoTwitter from '@icons/logo-twitter.svg'
+import logoYoutube from '@icons/logo-youtube.svg'
+
 const Footer = (): React.JSX.Element => {
     return (
         <footer>
@@ -10,19 +15,19 @@ const Footer = (): React.JSX.Element => {
 
                 <div id="social-networks">
                     <div className="network" icon-button='true'>
-                        <img width="24px" src="./src/assets/icons/logo-instagram.svg" alt="Logo instagram" />
+                        <img width="24px" src={ logoInstagram } alt="Logo instagram" />
                     </div>
 
                     <div className="network" icon-button='true'>
-                        <img width="24px" src="./src/assets/icons/logo-tiktok.svg" alt="Logo tiktok" />
+                        <img width="24px" src={ logoTiktok } alt="Logo tiktok" />
                     </div>
 
                     <div className="network" icon-button='true'>
-                        <img width="24px" src="./src/assets/icons/logo-twitter.svg" alt="Logo twitter" />
+                        <img width="24px" src={ logoTwitter } alt="Logo twitter" />
                     </div>
 
                     <div className="network" icon-button='true'>
-                        <img width="24px" src="./src/assets/icons/logo-youtube.svg" alt="Logo youtube" />
+                        <img width="24px" src={ logoYoutube } alt="Logo youtube" />
                     </div>
                 </div>
             </div>
