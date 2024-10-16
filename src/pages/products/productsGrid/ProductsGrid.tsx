@@ -12,7 +12,7 @@ const ProductsGrid = ({ products }: { products: Product[] }) => {
             <Suspense fallback={ <Loading height='50vh'/> }>
                 {
                     products.map(p => (
-                        <ProductCard id={p.id} key={p.id} productName={p.title} price={p.price} imgUrl={p.thumbnail} description={p.description} />
+                        <ProductCard key={p.id} product={p} />
                     ))
                 }
             </Suspense>
