@@ -1,5 +1,5 @@
-import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
 
 import Footer from "@components/footer/Footer"
 import Header from "@components/header/Header"
@@ -7,11 +7,11 @@ import Header from "@components/header/Header"
 import './singleProduct.css'
 
 import useDummyjson from "@hooks/useDummyjson"
-import { Product } from "@types/Product"
+import { useCart } from "@context/CartContext"
 
+import { Product } from "@types/Product"
 import bagIcon from '@icons/bag-outline.svg'
 import bicycleIcon from '@icons/bicycle-outline.svg'
-import { useCart } from "@context/CartContext"
 
 const SingleProduct = () => {
     const { id } = useParams()
@@ -27,7 +27,6 @@ const SingleProduct = () => {
         }
     }
 
-    
     useEffect(() => {
         getProduct()
     // eslint-disable-next-line react-hooks/exhaustive-deps
