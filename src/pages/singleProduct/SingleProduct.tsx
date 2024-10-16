@@ -1,11 +1,16 @@
+import { Link, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+
 import Footer from "@components/footer/Footer"
 import Header from "@components/header/Header"
 
 import './singleProduct.css'
-import { Link, useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+
 import useDummyjson from "@hooks/useDummyjson"
 import { Product } from "@types/Product"
+
+import bagIcon from '@icons/bag-outline.svg'
+import bicycleIcon from '@icons/bicycle-outline.svg'
 
 const SingleProduct = () => {
     const { id } = useParams()
@@ -44,6 +49,18 @@ const SingleProduct = () => {
                             <p>{product.description}</p>
 
                             <button>Comprar</button>
+
+                            <div id="tags">
+                                <div className="information-tag">
+                                    <img src={bagIcon} alt="Warranty icon" width={30} />
+                                    <p> { product.warrantyInformation } </p>
+                                </div>
+
+                                <div className="information-tag">
+                                    <img src={bicycleIcon} alt="Shipping icon" width={30} />
+                                    <p> { product.shippingInformation } </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -65,6 +65,28 @@
     box-shadow: 0 0 30px var(--active-blue);
 }
 
+#tags {
+    display: flex;
+    gap: 1em;
+}
+
+.information-tag {
+    width: 200px;
+    background: red;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1em;
+    background-color: aliceblue;
+}
+
+@media (width < 1000px) {
+    #tags {
+        flex-direction: column;
+    }
+}
+
 @media (width < 800px) {
     #container {
         width: 70%;
@@ -77,5 +99,24 @@
     #min-container > div {
         width: 100%;
         margin: 0 auto;
+    }
+
+    #tags {
+        flex-direction: row;
+    }
+}
+
+@media (width < 600px) {
+    #product-description button {
+        width: 100%;
+    }
+
+    #tags {
+        flex-direction: column;
+    }
+
+    .information-tag {
+        width: 100%;
+        justify-content: center;
     }
 }
