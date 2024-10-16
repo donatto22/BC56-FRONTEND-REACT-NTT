@@ -8,6 +8,7 @@ import useLocalStorage from '@hooks/useLocalStorage'
 import logo from '@images/logo.png'
 import searchIcon from '@icons/search-outline.svg'
 import cartIcon from '@icons/cart-outline.svg'
+import CartBar from '@components/cartBar/CartBar'
 
 interface HeaderProps {
     products: Product[],
@@ -20,6 +21,7 @@ const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JS
     const { getItem } = useLocalStorage()
 
     const cartCounter = useRef(null)
+    const cartBarRef = useRef(null)
 
     useEffect(() => {
         const getCartCounter = () => {
@@ -35,6 +37,12 @@ const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JS
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value)
+    }
+
+    const toggleCart = () => {
+        if(cartBarRef.current) {
+            (cartBarRef.current as HTMLDivElement).classList.toggle('cartBar-open')
+        }
     }
 
     return (
@@ -68,13 +76,15 @@ const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JS
                     }
 
                     <li>
-                        <div id="cart-icon" ref={ cartCounter }>
+                        <div id="cart-icon" ref={ cartCounter } onClick={ toggleCart }>
                             <img src={ cartIcon } alt="Shopping Cart Icon" width="30px" height="auto" />
                                 <p> { getItem('cartCounter') } </p>
                         </div>
 
                         <User cartCounter={ cartCounter } />
                     </li>
+
+                    <CartBar reference={ cartBarRef } onClick={ toggleCart }/>
                 </ol>
             </nav>
         </header>

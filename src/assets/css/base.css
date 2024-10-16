@@ -29,10 +29,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
     background-color: transparent;
+    background-color: var(--white);
     width: 14px;
 }
 

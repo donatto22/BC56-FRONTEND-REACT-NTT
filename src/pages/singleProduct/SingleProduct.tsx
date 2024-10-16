@@ -41,7 +41,7 @@ const SingleProduct = () => {
                     <p><Link to='/products'>Productos</Link> &gt; { product.title }</p>
                     <div id="min-container">
                         <div id="product-image">
-                            <img src={product.thumbnail} alt={product.title} />
+                            <img src={product.thumbnail} alt={product.title} loading="lazy" />
                         </div>
 
                         <div id="product-description">
