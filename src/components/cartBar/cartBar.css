@@ -1,8 +1,8 @@
 #cartBar {
     top: 0;
     height: 100vh;
-    width: 340px;
-    right: -440px;
+    width: 400px;
+    right: -480px;
     position: fixed;
     background-color: var(--white);
     transition: right .3s ease-out;

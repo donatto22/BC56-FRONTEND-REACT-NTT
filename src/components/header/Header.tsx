@@ -77,7 +77,7 @@ const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JS
 
                     <li>
                         <div id="cart-icon" ref={ cartCounter } onClick={ toggleCart }>
-                            <img src={ cartIcon } alt="Shopping Cart Icon" width="30px" height="auto" />
+                            <img src={ cartIcon } alt="Shopping Cart Icon" width="28px" height="auto" />
                                 <p> { getItem('cartCounter') } </p>
                         </div>
 

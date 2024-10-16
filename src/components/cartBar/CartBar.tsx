@@ -2,6 +2,7 @@ import { useCart } from '@context/CartContext'
 import './cartBar.css'
 
 import closeIcon from '@icons/close-outline.svg'
+import ItemCard from './ItemCard'
 
 const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivElement>, onClick: () => void }) => {
     const { cartItems } = useCart()
@@ -19,7 +20,7 @@ const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivEle
             <div id="cart-main">
                 {
                     cartItems.map(item => (
-                        <div> { item.title } </div>
+                        <ItemCard item={ item }/>
                     ))
                 }
             </div>
