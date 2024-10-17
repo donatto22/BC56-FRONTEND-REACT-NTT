@@ -1,9 +1,10 @@
-import { CartItem } from "@types/CartItem"
-
-import './tableSummary.css'
 import { useEffect, useState } from "react"
+import './tableSummary.css'
+import { useCart } from "@context/CartContext"
+import TableItem from "./TableItem"
 
-const TableSummary = ({ cartItems }: { cartItems: CartItem[] }): React.JSX.Element => {
+const TableSummary = (): React.JSX.Element => {
+    const { cartItems } = useCart()
     const [totalPrice, setTotalPrice] = useState(0)
 
     useEffect(() => {
@@ -28,27 +29,16 @@ const TableSummary = ({ cartItems }: { cartItems: CartItem[] }): React.JSX.Eleme
             <tbody>
                 {
                     cartItems.map(item => (
-                        <tr className="tableItem">
-                            <td>
-                                <img width={50} src={ item.thumbnail } alt={ item.title } />
-                            </td>
-                            <td> { item.title } </td>
-                            <td className="price"> S/. { item.price } </td> 
-                            <td> { item.quantity } </td>
-                            <td></td>
-                            <td className="price"> S/. { item.price * item.quantity } </td>
-                        </tr>
+                        <TableItem item={item} />
                     ))
                 }
             </tbody>
 
             <tfoot>
-                <th>Total</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <td className="price">S/. { String(totalPrice.toFixed(2)) }</td>
+                <tr>
+                    <th colSpan={5}>Total</th>
+                    <th className="price">S/. {String(totalPrice.toFixed(2))}</th>
+                </tr>
             </tfoot>
         </table>
     )

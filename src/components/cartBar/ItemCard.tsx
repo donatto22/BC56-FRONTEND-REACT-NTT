@@ -2,8 +2,7 @@ import { useCart } from "@context/CartContext"
 import { CartItem } from "@types/CartItem"
 
 import deleteIcon from '@icons/trash-outline.svg'
-import minusIcon from '@icons/remove-outline.svg'
-import addIcon from '@icons/add-outline.svg'
+import QuantityOptions from "@components/quantityOptions/QuantityOptions"
 
 const ItemCard = ({ item }: { item: CartItem }) => {
     const { removeFromCart, addToCart } = useCart()
@@ -18,17 +17,7 @@ const ItemCard = ({ item }: { item: CartItem }) => {
                 <div className="itemDescription">
                     <b>{item.title}</b>
                     <div className="price">S/. {item.price}</div>
-                    <div className="quantity">
-                        <button>
-                            <img src={ minusIcon } width={14} alt="Minus icon" />
-                        </button>
-
-                        <p>{ item.quantity }</p>
-
-                        <button onClick={ () => addToCart(item) }>
-                            <img src={ addIcon } width={14} alt="Add icon" />
-                        </button>
-                    </div>
+                    <QuantityOptions item={ item } />
                 </div>
             </div>
 

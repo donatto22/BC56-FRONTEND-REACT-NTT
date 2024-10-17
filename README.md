@@ -4,18 +4,20 @@
 > [!WARNING]
 > You must have installed [Node](https://nodejs.org/en) and [Vite](https://es.vitejs.dev/)
 
+### Done
+✔️ Nueva Página "Resumen" donde se vean los productos agregados al carrito.
+
+✔️ Se debe poder visualisar la cantidad a pagar total.
+
+✔️ Solo usar useReducer, useContext y Provider. Prohibido librerías de terceros para manejo de estados.
+
 ### Pending
-🕒 Nueva Página "Resumen" donde se vean los productos agregados al carrito.
 
 🕒 Se pueden agregar, reducir o eliminar productos del carrito.
-
-🕒 Se debe poder visualisar la cantidad a pagar total.
 
 🕒 Modificar los productos del carrito debe cambiar también la cantidad total a pagar. Y el número de productos del carrito.
 
 🕒 Eliminar un producto debe quitar el producto de la lista, el contador del carrito y el monto total a pagar.
-
-🕒 Solo usar useReducer, useContext y Provider. Prohibido librerías de terceros para manejo de estados.
 
 🕒 Debajo del resumen, se tendrá un formulario para el envío de productos.
 
