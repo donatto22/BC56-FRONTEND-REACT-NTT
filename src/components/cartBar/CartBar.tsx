@@ -20,7 +20,7 @@ const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivEle
             <div id="cart-main">
                 {
                     cartItems.map(item => (
-                        <ItemCard item={ item }/>
+                        <ItemCard key={ item.id } item={ item }/>
                     ))
                 }
             </div>
