@@ -3,9 +3,11 @@ import './cartBar.css'
 
 import closeIcon from '@icons/close-outline.svg'
 import ItemCard from './ItemCard'
+import { useNavigate } from 'react-router-dom'
 
 const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivElement>, onClick: () => void }) => {
     const { cartItems, clearCart } = useCart()
+    const navigate = useNavigate()
 
     return (
         <div id="cartBar" ref={reference}>
@@ -27,7 +29,10 @@ const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivEle
 
             <div id="cart-footer">
                 <p>Total:</p>
-                <button id='clearCart' onClick={ () => clearCart() }>Vaciar Carrito</button>
+                <div id="cart-actions">
+                    <button id='buyButton' onClick={ () => navigate('/summary') }>Comprar</button>
+                    <button id='clearCart' onClick={ () => clearCart() }>Vaciar Carrito</button>
+                </div>
             </div>
         </div>
     )

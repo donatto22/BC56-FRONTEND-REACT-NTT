@@ -1,0 +1,22 @@
+#tableSummary {
+    width: var(--width);
+    margin: 0 auto;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+td, th {
+    border: 0;
+    text-align: left;
+    padding: 1em;
+}
+
+.tableItem {
+    padding: 1em;
+    background-color: #fff;
+}
