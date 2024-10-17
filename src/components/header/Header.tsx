@@ -9,6 +9,7 @@ import logo from '@images/logo.png'
 import searchIcon from '@icons/search-outline.svg'
 import cartIcon from '@icons/cart-outline.svg'
 import CartBar from '@components/cartBar/CartBar'
+import { useLocation } from 'react-router-dom'
 
 interface HeaderProps {
     products: Product[],
@@ -18,6 +19,7 @@ interface HeaderProps {
 
 const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JSX.Element => {
     const [cartLocalCounter, setCartLocalCounter] = useState()
+    const location = useLocation()
     const { getItem } = useLocalStorage()
 
     const cartCounter = useRef(null)
@@ -54,7 +56,7 @@ const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JS
                     </li>
 
                     {
-                        search &&
+                        location.pathname == '/products' &&
                         <li id="search">
                             <form>
                                 <input list="productsList" value={search} onChange={(e) => handleSearch(e)}

@@ -17,7 +17,7 @@ const ItemCard = ({ item }: { item: CartItem }) => {
 
                 <div className="itemDescription">
                     <b>{item.title}</b>
-                    <div>S/. {item.price}</div>
+                    <div className="price">S/. {item.price}</div>
                     <div className="quantity">
                         <button>
                             <img src={ minusIcon } width={14} alt="Minus icon" />

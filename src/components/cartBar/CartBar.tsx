@@ -5,7 +5,7 @@ import closeIcon from '@icons/close-outline.svg'
 import ItemCard from './ItemCard'
 
 const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivElement>, onClick: () => void }) => {
-    const { cartItems } = useCart()
+    const { cartItems, clearCart } = useCart()
 
     return (
         <div id="cartBar" ref={reference}>
@@ -23,6 +23,11 @@ const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivEle
                         <ItemCard key={ item.id } item={ item }/>
                     ))
                 }
+            </div>
+
+            <div id="cart-footer">
+                <p>Total:</p>
+                <button id='clearCart' onClick={ () => clearCart() }>Vaciar Carrito</button>
             </div>
         </div>
     )

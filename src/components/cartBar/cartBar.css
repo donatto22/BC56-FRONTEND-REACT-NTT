@@ -9,6 +9,19 @@
     box-shadow: -20px 0 100px -20px #a5a5a5;
     z-index: 100;
     padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.itemDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .cartBar-open {
@@ -43,6 +56,35 @@
     }
 
     box-shadow: 0 0 20px hsl(0, 0%, 55%);
+}
+
+#cart-main {
+    margin: 1em 0;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 1em;
+    height: 100%;
+}
+
+#cart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#clearCart {
+    background-color: hsl(0, 93%, 73%);
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    cursor: pointer;
+}
+
+#clearCart:hover {
+    background-color: hsl(0, 93%, 53%);
 }
 
 .itemCard {
@@ -84,7 +126,6 @@
 }
 
 .quantity {
-    margin-top: 10px;
     display: flex;
     gap: 10px;
 }
@@ -106,3 +147,4 @@
 .quantity button:active {
     background-color: hsl(0, 0%, 58%);
 }
+

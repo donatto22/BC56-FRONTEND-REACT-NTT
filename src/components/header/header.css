@@ -136,13 +136,3 @@ nav ol {
     opacity: 1 !important;
     display: block !important;
 }
-
-#cart-main {
-    margin: 1em 0;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    max-height: 70vh;
-    overflow-y: scroll;
-    gap: 1em;
-}
