@@ -1,0 +1,50 @@
+#buyForm {
+    width: 400px;
+    margin: 2em auto;
+}
+
+.buyFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.buyFormGroup:not(:last-child) {
+    margin-bottom: 1em;
+}
+
+#buyFormButton {
+    padding: 1em 0;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(237, 237, 237);
+}
+
+#buyFormButton:not(:disabled) {
+    --default-blue: #547ff5;
+    --active-blue: hsl(224, 77%, 47%);
+    background-color: var(--default-blue);
+    cursor: pointer;
+    color: white;
+    transition: box-shadow .1s linear, background-color .1s linear;
+}
+
+#buyFormButton:not(:disabled):hover {
+    box-shadow: 0 0 30px var(--default-blue);
+}
+
+#buyFormButton:not(:disabled):active {
+    background-color: var(--active-blue);
+}
+
+.buyFormGroup input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+}
+
+.buyFormGroup input:focus {
+    outline: 1px solid gray;
+}

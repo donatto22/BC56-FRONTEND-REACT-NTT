@@ -5,7 +5,7 @@ import RouterGuard from './RouterGuard'
 const Login = lazy(async () => await import('../pages/login/Login'))
 const Products = lazy(async () => await import('../pages/products/Products'))
 const SingleProduct = lazy(async () => await import('../pages/singleProduct/SingleProduct'))
-const CartSummary = lazy(async () => await import('../pages/cartSummary/CartSummary'))
+const CartSummary = lazy(async () => await import('../pages/summary/CartSummary'))
 
 const AppRouter = (): React.JSX.Element => {
     return (

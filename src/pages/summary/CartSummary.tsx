@@ -8,6 +8,7 @@ import gridView from '@icons/grid-outline.svg'
 
 import './cartSummary.css'
 import GridSummary from './views/grid/GridSummary'
+import BuyForm from '@components/buyForm/BuyForm'
 
 const CartSummary = () => {
     const [view, setView] = useState<'list' | 'grid'>('list')
@@ -29,6 +30,8 @@ const CartSummary = () => {
             {
                 view == 'list' ? <TableSummary /> : <GridSummary />
             }
+
+            <BuyForm />
 
             <Footer />
         </>

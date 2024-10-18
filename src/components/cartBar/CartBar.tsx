@@ -4,6 +4,7 @@ import './cartBar.css'
 
 import closeIcon from '@icons/close-outline.svg'
 import ItemCard from './ItemCard'
+import NoCartProducts from '@components/noCartProducts/NoCartProducts'
 
 const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivElement>, onClick: () => void }) => {
     const { cartItems, clearCart } = useCart()
@@ -21,9 +22,11 @@ const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivEle
 
             <div id="cart-main">
                 {
+                    cartItems.length != 0 ?
                     cartItems.map(item => (
                         <ItemCard key={ item.id } item={ item }/>
-                    ))
+                    )) :
+                    <NoCartProducts />
                 }
             </div>
 
