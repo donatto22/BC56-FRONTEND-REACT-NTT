@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react"
-import './tableSummary.css'
 import { useCart } from "@context/CartContext"
+
+import './tableSummary.css'
 import TableItem from "./TableItem"
 
 const TableSummary = (): React.JSX.Element => {
-    const { cartItems } = useCart()
-    const [totalPrice, setTotalPrice] = useState(0)
-
-    useEffect(() => {
-        cartItems.forEach(item => {
-            setTotalPrice(prevPrice => prevPrice += (item.price * item.quantity))
-        })
-    }, [cartItems])
+    const { cartItems, totalPrice } = useCart()
 
     return (
         <table id="tableSummary">
@@ -29,7 +22,7 @@ const TableSummary = (): React.JSX.Element => {
             <tbody>
                 {
                     cartItems.map(item => (
-                        <TableItem item={item} />
+                        <TableItem key={item.id} item={item} />
                     ))
                 }
             </tbody>
@@ -37,7 +30,7 @@ const TableSummary = (): React.JSX.Element => {
             <tfoot>
                 <tr>
                     <th colSpan={5}>Total</th>
-                    <th className="price">S/. {String(totalPrice.toFixed(2))}</th>
+                    <th className="price">S/. { String(totalPrice.toFixed(2)) }</th>
                 </tr>
             </tfoot>
         </table>

@@ -3,6 +3,7 @@
     margin: 0 auto;
     border-collapse: collapse;
     overflow: hidden;
+    text-align: left;
 }
 
 thead {
@@ -12,7 +13,6 @@ thead {
 
 td, th {
     border: 0;
-    text-align: left;
     padding: 1em;
 }
 

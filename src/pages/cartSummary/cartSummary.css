@@ -1,0 +1,23 @@
+#cartViewOptions {
+    width: 90%;
+    margin: 1em auto;
+    display: flex;
+    gap: 10px;
+}
+
+.viewOption {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    border: 1px solid hsl(0, 0%, 80%);
+    cursor: pointer;
+    background-color: hsl(0, 0%, 95%);
+}
+
+.viewOption:hover {
+    background-color: hsl(0, 0%, 85%);
+}
+
+.viewOption:active {
+    background-color: hsl(0, 0%, 80%);
+}

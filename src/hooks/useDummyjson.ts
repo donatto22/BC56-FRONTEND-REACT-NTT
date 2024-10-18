@@ -1,11 +1,12 @@
+import { startTransition, useCallback } from "react"
+import { useNavigate } from "react-router-dom"
+
+import useLocalStorage from "./useLocalStorage"
 import useFetch from "./useFetch"
 import { Category } from "@types/Category"
 import { Product, ProductResponse } from "@types/Product"
 import { ApiEndpoints } from "@types/ApiEndpoints"
 import { DummyToken } from "@types/DummyToken"
-import useLocalStorage from "./useLocalStorage"
-import { useNavigate } from "react-router-dom"
-import { startTransition } from "react"
 
 
 const useDummyjson = () => {
@@ -25,25 +26,25 @@ const useDummyjson = () => {
         })
     }
 
-    const getProducts = async (): Promise<ProductResponse> => {
+    const getProducts = useCallback(async (): Promise<ProductResponse> => {
         const { products } = await get(ApiEndpoints.PRODUCTS)
         return { products }
-    }
+    }, [])
 
-    const getProductById = async (id: string): Promise<Product> => {
+    const getProductById = useCallback(async (id: string): Promise<Product> => {
         const product = await get(ApiEndpoints.PRODUCTS + `/${id}`)
         return { product }
-    }
+    }, [])
 
-    const getCategories = async (): Promise<Category[]> => {
+    const getCategories = useCallback(async (): Promise<Category[]> => {
         const categories = await get(ApiEndpoints.CATEGORIES)
         return categories
-    }
+    }, [])
 
-    const getProductsByCategory = async (slug: string): Promise<ProductResponse> => {
+    const getProductsByCategory = useCallback(async (slug: string): Promise<ProductResponse> => {
         const products = await get(ApiEndpoints.PRODUCTS_BY_CATEGORY + `/${slug}`)
         return products
-    }
+    }, [])
 
     return Object.freeze({
         login, logout, getProducts, getCategories, getProductsByCategory, getProductById

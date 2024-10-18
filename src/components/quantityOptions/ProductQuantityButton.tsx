@@ -14,16 +14,16 @@ interface ProductActions {
 
 
 const ProductQuantityButton = ({ type, item }: ProductActions) => {
-    const { addToCart } = useCart()
+    const { addToCart, decreaseQuantity } = useCart()
     return (
         <>
             {
                 type == 'Add' ?
                 <button className="productQuantityButton" onClick={() => addToCart(item)} >
-                    <img src={addIcon} alt="Add Icon" />
+                    <img src={ addIcon } alt="Add Icon" />
                 </button> :
-                <button className="productQuantityButton" onClick={() => addToCart(item)} >
-                    <img src={minusIcon} alt="Add Icon" />
+                <button className="productQuantityButton" onClick={() => decreaseQuantity(item.id)} >
+                    <img src={ minusIcon } alt="Minus Icon" />
                 </button>
             }
         </>

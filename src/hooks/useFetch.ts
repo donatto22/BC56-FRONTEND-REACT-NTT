@@ -1,14 +1,15 @@
 import { ErrorMessages } from '@types/ErrorMessages'
+import { useCallback } from 'react'
 
 const useFetch = () => {
-    const get = async (endpoint: string) => {
+    const get = useCallback(async (endpoint: string) => {
         const result = await fetch(endpoint)
         if(!result.ok) throw new Error('No se pudo obtener los datos')
-
+    
         const data = await result.json()
-
+    
         return data
-    }
+    }, [])
 
     const post = async (endpoint: string, body: object) => {
         const res = await fetch(endpoint, {

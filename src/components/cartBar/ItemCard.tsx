@@ -2,10 +2,10 @@ import { useCart } from "@context/CartContext"
 import { CartItem } from "@types/CartItem"
 
 import deleteIcon from '@icons/trash-outline.svg'
-import QuantityOptions from "@components/quantityOptions/QuantityOptions"
+import QuantityOptions from "@components/QuantityOptions/QuantityOptions"
 
 const ItemCard = ({ item }: { item: CartItem }) => {
-    const { removeFromCart, addToCart } = useCart()
+    const { removeFromCart } = useCart()
 
     return (
         <div className="itemCard">
@@ -21,9 +21,9 @@ const ItemCard = ({ item }: { item: CartItem }) => {
                 </div>
             </div>
 
-            <div className="itemOptions" onClick={ () => { removeFromCart(item.id) }}>
+            <button className="cartDeleteButton" onClick={ () => { removeFromCart(item.id) }}>
                 <img src={ deleteIcon } width={20} alt="Delete Icon" />
-            </div>
+            </button>
         </div>
     )
 }

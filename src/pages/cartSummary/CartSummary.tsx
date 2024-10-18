@@ -1,16 +1,34 @@
-import Footer from "@components/footer/Footer"
-import Header from "@components/header/Header"
-import { useCart } from "@context/CartContext"
-import TableSummary from "./views/table/TableSummary"
+import { useState } from 'react'
+import TableSummary from './views/table/TableSummary'
+import Footer from '@components/footer/Footer'
+import Header from '@components/header/Header'
+
+import listView from '@icons/list-outline.svg'
+import gridView from '@icons/grid-outline.svg'
+
+import './cartSummary.css'
+import GridSummary from './views/grid/GridSummary'
 
 const CartSummary = () => {
-    const { cartItems, addToCart, clearCart } = useCart()
+    const [view, setView] = useState<'list' | 'grid'>('list')
 
     return (
         <>
             <Header />
 
-            <TableSummary cartItems={ cartItems } />
+            <div id="cartViewOptions">
+                <button className='viewOption' onClick={ () => setView('list') }>
+                    <img width={20} src={ listView } alt="List outline icon" />
+                </button>
+
+                <button className='viewOption' onClick={ () => setView('grid') }>
+                    <img width={20} src={ gridView } alt="Grid outline icon" />
+                </button>
+            </div>
+
+            {
+                view == 'list' ? <TableSummary /> : <GridSummary />
+            }
 
             <Footer />
         </>

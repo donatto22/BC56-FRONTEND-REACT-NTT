@@ -5,3 +5,23 @@
     align-items: center;
     gap: 10px;
 }
+
+.cartDeleteButton {
+    padding: 10px;
+    display: flex;
+    cursor: pointer;
+    transition: background-color .1s linear, box-shadow .1s linear;
+    border-radius: 10px;
+    border: 1px solid red;
+    background-color: rgb(251, 240, 240);
+}
+
+.cartDeleteButton img {
+    filter: invert(40%)
+}
+
+.cartDeleteButton:hover {
+    background-color: rgb(254, 226, 226);
+    border: 1px solid red;
+    box-shadow: 0 0 30px -10px red;
+}

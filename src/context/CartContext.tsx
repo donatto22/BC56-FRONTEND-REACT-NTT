@@ -1,17 +1,18 @@
-import { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react'
 import { Product } from '@types/Product'
 import { CartItem } from '@types/CartItem'
 
 interface CartContextType {
   cartItems: CartItem[]
+  totalPrice: number
   addToCart: (product: Product) => void
   removeFromCart: (productId: number) => void
+  decreaseQuantity: (productId: number) => void
   clearCart: () => void
 }
 
 const CartContext = createContext<CartContextType | null>(null)
 
-// Hook para usar el contexto
 export const useCart = (): CartContextType => {
     const context = useContext(CartContext)
     if (!context) {
@@ -20,9 +21,17 @@ export const useCart = (): CartContextType => {
     return context
 }
 
-// Provider del carrito
 export const CartProvider = ({ children }: { children: ReactNode }): React.JSX.Element => {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
+    const [totalPrice, setTotalPrice] =useState(0)
+
+    useEffect(() => {
+        setTotalPrice(0)
+
+        cartItems.forEach(item => {
+            setTotalPrice(prevPrice => prevPrice += (item.price * item.quantity))
+        })
+    }, [cartItems])
 
     const addToCart = (product: Product) => {
         setCartItems(prevItems => {
@@ -40,6 +49,25 @@ export const CartProvider = ({ children }: { children: ReactNode }): React.JSX.E
         })
     }
 
+    const decreaseQuantity = (productId: number) => {
+        setCartItems(prevItems => {
+            const existingProduct = prevItems.find(item => item.id === productId)
+
+            if (existingProduct) {
+                if (existingProduct.quantity > 1) {
+                    return prevItems.map(item =>
+                        item.id === productId
+                            ? { ...item, quantity: item.quantity - 1 }
+                            : item
+                    )
+                } else {
+                    return prevItems.filter(item => item.id !== productId)
+                }
+            }
+            return prevItems
+        })
+    }
+
     const clearCart = () => {
         setCartItems([])
     }
@@ -49,7 +77,7 @@ export const CartProvider = ({ children }: { children: ReactNode }): React.JSX.E
     }
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, clearCart, removeFromCart }}>
+        <CartContext.Provider value={{ cartItems, totalPrice, addToCart, clearCart, removeFromCart, decreaseQuantity }}>
             {children}
         </CartContext.Provider>
     )

@@ -1,0 +1,100 @@
+#productsGridContainer {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    gap: 1em;
+}
+
+#gridView {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#receipt {
+    width: 300px;
+}
+
+#receipt, .gridItem {
+    border-radius: 10px;
+    background-color: #ffffff;
+    outline: 1px solid rgb(228, 228, 228);
+}
+
+.gridItem {
+    display: flex;
+    padding: 2em;
+    padding-right: 4em;
+    justify-content: space-between;
+}
+
+.gridItemProduct {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.itemDescription {
+    gap: 1em;
+}
+
+.rating, .pricing {
+    display: flex;
+    gap: 10px;
+}
+
+#receipt {
+    padding: 2em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    position: sticky;
+    top: 1em;
+}
+
+#receipt h3 {
+    font-size: 30px;
+    color: hsl(169, 97%, 43%);
+}
+
+.reviews {
+    width: fit-content;
+    padding: .6em 2em;
+    border-radius: 10px;
+    background-color: hsl(224, 100%, 95%);
+    border: 0;
+    cursor: pointer;
+}
+
+.reviews:hover {
+    background-color: hsl(224, 100%, 70%);
+    color: white;
+}
+
+.gridItemImage img {
+    vertical-align: middle;
+    --size: 200px;
+    width: var(--size);
+    height: var(--size);
+}
+
+.gridActions {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+}
+
+.totalPricePerUnit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.totalPricePerUnit > p {
+    font-size: 20px;
+}

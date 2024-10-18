@@ -11,11 +11,11 @@
 
 ✔️ Solo usar useReducer, useContext y Provider. Prohibido librerías de terceros para manejo de estados.
 
+✔️ Se pueden agregar, reducir o eliminar productos del carrito.
+
+✔️ Modificar los productos del carrito debe cambiar también la cantidad total a pagar. Y el número de productos del carrito.
+
 ### Pending
-
-🕒 Se pueden agregar, reducir o eliminar productos del carrito.
-
-🕒 Modificar los productos del carrito debe cambiar también la cantidad total a pagar. Y el número de productos del carrito.
 
 🕒 Eliminar un producto debe quitar el producto de la lista, el contador del carrito y el monto total a pagar.
 
@@ -25,7 +25,7 @@
 
 🕒 El campo "Distrito" será desplegable que carga el contenido con un custom hook que lee un archivo javascript.
 
-🕒 Si el formulario está correcto y se da click en "comprar", se muestra una alerta personalizada donde el pedido se registróm con éxito.
+🕒 Si el formulario está correcto y se da click en "comprar", se muestra una alerta personalizada donde el pedido se registró con éxito.
 
 🕒 Una vez dado en "aceptar" en la alerta personalizzada, todo lo carrito se limpia y se le redirige a la página de Productos del Market.
 
