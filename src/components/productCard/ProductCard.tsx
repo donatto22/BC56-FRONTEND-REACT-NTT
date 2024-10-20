@@ -10,16 +10,16 @@ const ProductCard = ({ product }: { product: Product }): React.JSX.Element => {
     const { addToCart } = useCart()
 
     const handleAddToCart = (productSelected: Product) => {
-        const cartCounter = getItem('cartCounter')
+        // const cartCounter = getItem('cartCounter')
 
-        if(!cartCounter) setItem('cartCounter', '1')
-            else setItem('cartCounter', String(Number(cartCounter) + 1))
+        // if(!cartCounter) setItem('cartCounter', '1')
+        //     else setItem('cartCounter', String(Number(cartCounter) + 1))
 
-        const cartIcon = document.getElementById('cart-icon')
-        if(cartIcon) {
-            const p = cartIcon.getElementsByTagName('p')[0]
-            p.textContent = String(Number(cartCounter) + 1)
-        }
+        // const cartIcon = document.getElementById('cart-icon')
+        // if(cartIcon) {
+        //     const p = cartIcon.getElementsByTagName('p')[0]
+        //     p.textContent = String(Number(cartCounter) + 1)
+        // }
 
         addToCart(productSelected)
     }

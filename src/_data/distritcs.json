@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "department": "Lima",
+        "districts": [
+            { "id": 1, "name": "Lima" },
+            { "id": 2, "name": "Ancon" },
+            { "id": 3, "name": "Ate" },
+            { "id": 4, "name": "Barranco" },
+            { "id": 5, "name": "Breña" },
+            { "id": 6, "name": "Carabayllo" },
+            { "id": 7, "name": "Chaclacayo" },
+            { "id": 8, "name": "Chorrillos" },
+            { "id": 9, "name": "Cieneguilla" },
+            { "id": 10, "name": "Comas" },
+            { "id": 11, "name": "El Agustino" },
+            { "id": 12, "name": "Independencia" },
+            { "id": 13, "name": "Jesus Maria" },
+            { "id": 14, "name": "La Molina" },
+            { "id": 15, "name": "Lince" },
+            { "id": 16, "name": "Los Olivos" },
+            { "id": 17, "name": "Lurigancho" },
+            { "id": 18, "name": "Lurin" },
+            { "id": 19, "name": "Magdalena del Mar" },
+            { "id": 20, "name": "Magdalena Vieja" },
+            { "id": 21, "name": "Miraflores" },
+            { "id": 22, "name": "Pachacamac" },
+            { "id": 23, "name": "Pucusana" },
+            { "id": 24, "name": "Puente Piedra" },
+            { "id": 25, "name": "Punta Hermosa" },
+            { "id": 26, "name": "Punta Negra" },
+            { "id": 27, "name": "Rimac" },
+            { "id": 28, "name": "San Bartolo" },
+            { "id": 29, "name": "San Isidro" },
+            { "id": 30, "name": "San Juan de Lurigancho" },
+            { "id": 31, "name": "San Juan de Miraflores" },
+            { "id": 32, "name": "San Luis" },
+            { "id": 33, "name": "San Martin de Porres" },
+            { "id": 34, "name": "San Miguel" },
+            { "id": 35, "name": "Santa Anita" },
+            { "id": 36, "name": "Santa Maria del Mar" },
+            { "id": 37, "name": "Santa Rosa" },
+            { "id": 38, "name": "Santiago de Surco" },
+            { "id": 39, "name": "Surquillo" },
+            { "id": 40, "name": "Villa el Salvador" },
+            { "id": 41, "name": "Villa Maria del Triunfo" },
+            { "id": 42, "name": "Miraflores" },
+            { "id": 43, "name": "Tanta" },
+            { "id": 44, "name": "Laraos" },
+            { "id": 45, "name": "Omas" },
+            { "id": 46, "name": "Cochas" }
+        ]
+    },
+
+    {
+        "id": 2,
+        "department": "Callao",
+        "districts": [
+            { "id": 1, "name": "Callao" },
+            { "id": 2, "name": "Bellavista" },
+            { "id": 3, "name": "Carmen de la Legua Reynoso" },
+            { "id": 4, "name": "La Perla" },
+            { "id": 5, "name": "La Punta" },
+            { "id": 6, "name": "Ventanilla" }
+        ]
+    }
+]

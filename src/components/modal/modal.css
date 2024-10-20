@@ -1,0 +1,51 @@
+/* modal */
+#modal {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.365);
+    z-index: 5;
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+#modalContainer {
+    width: 400px;
+    min-height: 100px;
+    background-color: var(--white);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+#modalButton {
+    --default-blue: #547ff5;
+    --active-blue: hsl(224, 77%, 47%);
+    color: white;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    width: 100px;
+    padding: 6px 0;
+    margin-top: 1em;
+    border-radius: 10px;
+    background-color: var(--default-blue);
+}
+
+#modalButton:hover {
+    background-color: var(--active-blue);
+    box-shadow: 0 0 20px var(--active-blue);
+}
+
+.showModal {
+    visibility: visible !important;
+}

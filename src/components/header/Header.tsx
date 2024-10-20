@@ -1,15 +1,16 @@
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
-import { Product } from '@types/Product'
+import { ChangeEvent, Dispatch, SetStateAction, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import './header.css'
+
+import CartBar from '@components/cartBar/CartBar'
 
 import User from './User'
-import './header.css'
-import useLocalStorage from '@hooks/useLocalStorage'
 
+import { Product } from '@types/Product'
 import logo from '@images/logo.png'
 import searchIcon from '@icons/search-outline.svg'
 import cartIcon from '@icons/cart-outline.svg'
-import CartBar from '@components/cartBar/CartBar'
-import { useLocation } from 'react-router-dom'
+import { useCart } from '@context/CartContext'
 
 interface HeaderProps {
     products: Product[],
@@ -18,24 +19,10 @@ interface HeaderProps {
 }
 
 const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JSX.Element => {
-    const [cartLocalCounter, setCartLocalCounter] = useState()
     const location = useLocation()
-    const { getItem } = useLocalStorage()
-
-    const cartCounter = useRef(null)
     const cartBarRef = useRef(null)
 
-    useEffect(() => {
-        const getCartCounter = () => {
-            const counter = getItem('cartCounter')
-            if(counter) {
-                setCartLocalCounter(counter)
-            }
-        }
-
-        getCartCounter()
-    }, [])
-
+    const { cartItems } = useCart()
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value)
@@ -56,7 +43,7 @@ const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JS
                     </li>
 
                     {
-                        location.pathname == '/products' &&
+                        location.pathname == '/' &&
                         <li id="search">
                             <form>
                                 <input list="productsList" value={search} onChange={(e) => handleSearch(e)}
@@ -77,13 +64,19 @@ const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JS
                         </li>
                     }
 
-                    <li>
-                        <div id="cart-icon" ref={ cartCounter } onClick={ toggleCart }>
-                            <img src={ cartIcon } alt="Shopping Cart Icon" width="28px" height="auto" />
-                                <p> { getItem('cartCounter') } </p>
-                        </div>
+                    {/* {
+                        location.pathname == '/' &&
+                        <li>
+                            <button><Link to='/login'>Iniciar Sesión</Link></button>
+                        </li>
+                    } */}
 
-                        <User cartCounter={ cartCounter } />
+                    <li>
+                        <div id="cart-icon" onClick={ toggleCart }>
+                            <img src={cartIcon} alt="Shopping Cart Icon" width="28px" height="auto" />
+                            <p> { cartItems.reduce((total, item) => total + item.quantity, 0) } </p>
+                        </div>
+                        <User />
                     </li>
 
                     <CartBar reference={ cartBarRef } onClick={ toggleCart }/>
