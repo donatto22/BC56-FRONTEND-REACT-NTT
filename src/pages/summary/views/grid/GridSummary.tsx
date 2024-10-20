@@ -5,9 +5,11 @@ import deleteIcon from '@icons/trash-outline.svg'
 import starIcon from '@icons/star.png'
 import dollarIcon from '@icons/dollar.png'
 import QuantityOptions from "@components/QuantityOptions/QuantityOptions"
+import { useNavigate } from "react-router-dom"
 
 const GridSummary = () => {
     const { cartItems, totalPrice, removeFromCart } = useCart()
+    const navigate = useNavigate()
     
     return (
         <div id="productsGridContainer">
@@ -32,7 +34,7 @@ const GridSummary = () => {
                                         <p>Precio / Unidad: <b>S/. {item.price}</b></p>
                                     </div>
 
-                                    <button className="reviews">Ver reseñas</button>
+                                    <button className="reviews" onClick={ () => navigate('/products/' + item.id) }>Ver Producto</button>
                                 </div>
                             </div>
 
