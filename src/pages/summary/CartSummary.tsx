@@ -9,8 +9,8 @@ import gridView from '@icons/grid-outline.svg'
 import './cartSummary.css'
 import GridSummary from './views/grid/GridSummary'
 import BuyForm from '@components/buyForm/BuyForm'
-import { useCart } from '@context/CartContext'
 import { useNavigate } from 'react-router-dom'
+import useCart from '@hooks/useCart'
 
 const CartSummary = () => {
     const [view, setView] = useState<'list' | 'grid'>('list')

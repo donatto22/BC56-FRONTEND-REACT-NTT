@@ -9,9 +9,9 @@ import './singleProduct.css'
 import useDummyjson from "@hooks/useDummyjson"
 import { useCart } from "@context/CartContext"
 
-import { Product } from "@types/Product"
 import bagIcon from '@icons/bag-outline.svg'
 import bicycleIcon from '@icons/bicycle-outline.svg'
+import { Product } from "@declarations/Product"
 
 const SingleProduct = () => {
     const { id } = useParams()
@@ -22,7 +22,7 @@ const SingleProduct = () => {
 
     const getProduct = async () => {
         if(id) {
-            const { product } = await getProductById(id)
+            const product = await getProductById(id)
             setProduct(product)
         }
     }
@@ -39,7 +39,7 @@ const SingleProduct = () => {
                 product &&
                 <>
                 <div id="container">
-                    <p><Link to='/products'>Productos</Link> &gt; { product.title }</p>
+                    <p><Link to='/'>Productos</Link> &gt; { product.title }</p>
                     <div id="min-container">
                         <div id="product-image">
                             <img src={product.thumbnail} alt={product.title} loading="lazy" />

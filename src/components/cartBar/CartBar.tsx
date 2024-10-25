@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom'
-import { useCart } from '@context/CartContext'
 import './cartBar.css'
 
 import closeIcon from '@icons/close-outline.svg'
 import ItemCard from './ItemCard'
 import NoCartProducts from '@components/noCartProducts/NoCartProducts'
+import useCart from '@hooks/useCart'
 
 const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivElement>, onClick: () => void }) => {
     const { cartItems, clearCart } = useCart()

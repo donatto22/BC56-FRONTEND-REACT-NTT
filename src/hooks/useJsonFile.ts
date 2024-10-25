@@ -1,4 +1,4 @@
-import { Department } from "@types/Department"
+import { Department } from "@declarations/Department"
 import { useEffect, useState } from "react"
 
 const useJsonFile = (path: Department[]) => {

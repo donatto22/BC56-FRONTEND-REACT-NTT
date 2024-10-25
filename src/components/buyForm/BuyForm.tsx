@@ -6,8 +6,8 @@ import Dropdown from '@components/dropdown/Dropdown'
 import warningIcon from '@icons/warning-icon.webp'
 import successIcon from '@icons/success-icon.png'
 import Modal from '@components/modal/Modal'
-import { useCart } from '@context/CartContext'
 import { useNavigate } from 'react-router-dom'
+import useCart from '@hooks/useCart'
 
 const BuyForm = () => {
     const formRef = useRef<HTMLFormElement>(null)

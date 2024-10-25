@@ -1,8 +1,8 @@
-import { useCart } from "@context/CartContext"
-import { CartItem } from "@types/CartItem"
 
 import deleteIcon from '@icons/trash-outline.svg'
 import QuantityOptions from "@components/QuantityOptions/QuantityOptions"
+import { CartItem } from "src/declarations/CartItem"
+import useCart from '@hooks/useCart'
 
 const ItemCard = ({ item }: { item: CartItem }) => {
     const { removeFromCart } = useCart()

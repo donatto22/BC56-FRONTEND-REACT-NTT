@@ -1,11 +1,9 @@
-import useLocalStorage from "@hooks/useLocalStorage"
-import { Product } from "@types/Product"
 import { useNavigate } from "react-router-dom"
-import { useCart } from "../../context/CartContext"
+import { Product } from "@declarations/Product"
+import useCart from "@hooks/useCart"
 
 const ProductCard = ({ product }: { product: Product }): React.JSX.Element => {
     const navigate = useNavigate()
-    const { setItem, getItem } = useLocalStorage()
 
     const { addToCart } = useCart()
 

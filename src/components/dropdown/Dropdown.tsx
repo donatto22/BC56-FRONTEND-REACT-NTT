@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from 'react'
 import useJsonFile from "@hooks/useJsonFile"
-import { Department } from "@types/Department"
 import districtsData from '../../_data/distritcs.json'
 
 import downIcon from '@icons/down.svg'
 
 import './dropdown.css'
+import { Department } from '@declarations/Department'
 
 const Dropdown = () => {
     const data: Department[] = useJsonFile(districtsData)

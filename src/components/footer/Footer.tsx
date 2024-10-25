@@ -1,9 +1,10 @@
-import './footer.css'
 
 import logoInstagram from '@icons/logo-instagram.svg'
 import logoTiktok from '@icons/logo-tiktok.svg'
 import logoTwitter from '@icons/logo-twitter.svg'
 import logoYoutube from '@icons/logo-youtube.svg'
+
+import './footer.css'
 
 const Footer = (): React.JSX.Element => {
     return (

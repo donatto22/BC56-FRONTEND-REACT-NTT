@@ -1,16 +1,17 @@
 import { ChangeEvent, Dispatch, SetStateAction, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+
 import './header.css'
 
 import CartBar from '@components/cartBar/CartBar'
 
 import User from './User'
 
-import { Product } from '@types/Product'
 import logo from '@images/logo.png'
 import searchIcon from '@icons/search-outline.svg'
 import cartIcon from '@icons/cart-outline.svg'
-import { useCart } from '@context/CartContext'
+import { Product } from '@declarations/Product'
+import useCart from '@hooks/useCart'
 
 interface HeaderProps {
     products: Product[],
@@ -25,7 +26,7 @@ const Header = ({ products, search, setSearch }: Partial<HeaderProps>): React.JS
     const { cartItems } = useCart()
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value)
+        setSearch && setSearch(e.target.value)
     }
 
     const toggleCart = () => {

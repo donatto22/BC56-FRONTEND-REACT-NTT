@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from "react"
 import './products.css'
 
 import useDummyjson from "@hooks/useDummyjson"
-import { Product } from "@types/Product"
-import { Category } from "@types/Category"
+
 import ProductsGrid from "./productsGrid/ProductsGrid"
 import Header from "@components/header/Header"
 import Footer from "@components/footer/Footer"
+import { Category } from "@declarations/Category"
+import { Product } from "@declarations/Product"
 
 const Products = () => {
     const { getProducts, getCategories, getProductsByCategory } = useDummyjson()

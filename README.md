@@ -4,28 +4,14 @@
 > [!WARNING]
 > You must have installed [Node](https://nodejs.org/en) and [Vite](https://es.vitejs.dev/)
 
-### Done
-✔️ Nueva Página "Resumen" donde se vean los productos agregados al carrito.
+### Pending
 
-✔️ Se debe poder visualisar la cantidad a pagar total.
+⌚ Se deberá usar Jest + Testing library
 
-✔️ Solo usar useReducer, useContext y Provider. Prohibido librerías de terceros para manejo de estados.
+⌚ Se deberá testear corectamente cada una de las funcionalidades creadas, componentes, hooks y páginas
 
-✔️ Se pueden agregar, reducir o eliminar productos del carrito.
+⌚ El testing debe abcargar la mayoría de archivos de la solución
 
-✔️ Modificar los productos del carrito debe cambiar también la cantidad total a pagar. Y el número de productos del carrito.
+⌚ Se evaluará la correcta definición de los nombres en cada uno de los tests
 
-✔️ Eliminar un producto debe quitar el producto de la lista, el contador del carrito y el monto total a pagar.
-
-✔️ Debajo del resumen, se tendrá un formulario para el envío de productos.
-
-✔️ Todos los campos son obligatorios y en caso de error se muestra el mensaje "Debe ingresar un valor válido"
-
-✔️ El campo "Distrito" será desplegable que carga el contenido con un custom hook que lee un archivo javascript.
-
-✔️ Si el formulario está correcto y se da click en "comprar", se muestra una alerta personalizada donde el pedido se registró con éxito.
-
-✔️ Una vez dado en "aceptar" en la alerta personalizzada, todo lo carrito se limpia y se le redirige a la página de Productos del Market.
-
-
-
+⌚ Se deberá testear y abarcar la mayor cobertura de código posible mostrando el coverage (opcional)

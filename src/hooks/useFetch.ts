@@ -1,4 +1,4 @@
-import { ErrorMessages } from '@types/ErrorMessages'
+import { ErrorMessages } from '@declarations/ErrorMessages'
 import { useCallback } from 'react'
 
 const useFetch = () => {

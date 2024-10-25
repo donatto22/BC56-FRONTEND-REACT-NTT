@@ -1,4 +1,3 @@
-import { useCart } from "@context/CartContext"
 import './gridSummary.css'
 
 import deleteIcon from '@icons/trash-outline.svg'
@@ -6,6 +5,7 @@ import starIcon from '@icons/star.png'
 import dollarIcon from '@icons/dollar.png'
 import QuantityOptions from "@components/QuantityOptions/QuantityOptions"
 import { useNavigate } from "react-router-dom"
+import useCart from '@hooks/useCart'
 
 const GridSummary = () => {
     const { cartItems, totalPrice, removeFromCart } = useCart()

@@ -1,4 +1,4 @@
-import { CartItem } from "@types/CartItem"
+import { CartItem } from "src/declarations/CartItem"
 import ProductQuantityButton from "./ProductQuantityButton"
 
 const QuantityOptions = ({ item }: { item: CartItem }) => {

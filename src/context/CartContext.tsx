@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, ReactNode, useEffect } from 'react'
-import { Product } from '@types/Product'
-import { CartItem } from '@types/CartItem'
+import { CartItem } from '@declarations/CartItem'
+import { Product } from '@declarations/Product'
+import { createContext,  useState, ReactNode, useEffect } from 'react'
 
 interface CartContextType {
   cartItems: CartItem[]
@@ -11,15 +11,7 @@ interface CartContextType {
   clearCart: () => void
 }
 
-const CartContext = createContext<CartContextType | null>(null)
-
-export const useCart = (): CartContextType => {
-    const context = useContext(CartContext)
-    if (!context) {
-        throw new Error('useCart must be used within a CartProvider')
-    }
-    return context
-}
+export const CartContext = createContext<CartContextType | null>(null)
 
 export const CartProvider = ({ children }: { children: ReactNode }): React.JSX.Element => {
     const [cartItems, setCartItems] = useState<CartItem[]>([])

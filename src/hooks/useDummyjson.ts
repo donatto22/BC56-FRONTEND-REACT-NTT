@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom"
 
 import useLocalStorage from "./useLocalStorage"
 import useFetch from "./useFetch"
-import { Category } from "@types/Category"
-import { Product, ProductResponse } from "@types/Product"
-import { ApiEndpoints } from "@types/ApiEndpoints"
-import { DummyToken } from "@types/DummyToken"
-
+import { ApiEndpoints } from "@declarations/ApiEndpoints"
+import { DummyToken } from "@declarations/DummyToken"
+import { Product, ProductResponse } from "@declarations/Product"
+import { Category } from "@declarations/Category"
 
 const useDummyjson = () => {
     const { get, post } = useFetch()
@@ -33,7 +32,7 @@ const useDummyjson = () => {
 
     const getProductById = useCallback(async (id: string): Promise<Product> => {
         const product = await get(ApiEndpoints.PRODUCTS + `/${id}`)
-        return { product }
+        return product
     }, [])
 
     const getCategories = useCallback(async (): Promise<Category[]> => {

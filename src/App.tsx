@@ -4,11 +4,11 @@ import { CartProvider } from "./context/CartContext"
 
 const App = () => {
     return (
-        <BrowserRouter>
-            <CartProvider>
+        <CartProvider>
+            <BrowserRouter>
                 <AppRouter />
-            </CartProvider>
-        </BrowserRouter>
+            </BrowserRouter>
+        </CartProvider>
     )
 }
 

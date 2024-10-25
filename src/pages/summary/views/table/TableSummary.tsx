@@ -1,7 +1,7 @@
-import { useCart } from "@context/CartContext"
 
 import './tableSummary.css'
 import TableItem from "./TableItem"
+import useCart from '@hooks/useCart'
 
 const TableSummary = (): React.JSX.Element => {
     const { cartItems, totalPrice } = useCart()

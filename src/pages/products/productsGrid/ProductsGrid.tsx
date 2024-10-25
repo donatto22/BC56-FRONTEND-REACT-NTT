@@ -1,10 +1,10 @@
 import { lazy, Suspense } from "react"
 const ProductCard = lazy(async () => await import('@components/productCard/ProductCard'))
 
-import { Product } from "@types/Product"
 import Loading from "@components/loading/Loading"
 
 import './productsGrid.css'
+import { Product } from "@declarations/Product"
 
 const ProductsGrid = ({ products }: { products: Product[] }) => {
     return (

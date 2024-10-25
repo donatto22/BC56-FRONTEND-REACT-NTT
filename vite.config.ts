@@ -9,7 +9,7 @@ export default defineConfig({
       '@images': '/src/assets/images',
       '@icons': '/src/assets/icons',
       '@components': '/src/components',
-      '@types': '/src/types',
+      '@declarations': '/src/declarations',
       '@hooks': '/src/hooks',
       '@context': '/src/context',
       '@utils': '/src/utils'
