@@ -6,7 +6,12 @@ import ItemCard from './ItemCard'
 import NoCartProducts from '@components/noCartProducts/NoCartProducts'
 import useCart from '@hooks/useCart'
 
-const CartBar = ({ reference, onClick }: { reference: React.RefObject<HTMLDivElement>, onClick: () => void }) => {
+interface CartBarProps {
+    reference: React.RefObject<HTMLDivElement>
+    onClick: () => void
+}
+
+const CartBar = ({ reference, onClick }: Partial<CartBarProps>) => {
     const { cartItems, clearCart } = useCart()
     const navigate = useNavigate()
 

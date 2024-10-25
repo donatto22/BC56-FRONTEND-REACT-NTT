@@ -1,6 +1,13 @@
 import './modal.css'
 
-const Modal = ({ reference, imageSrc, onClick, title }) => {
+interface ModalProps {
+    reference: React.RefObject<HTMLDivElement>
+    imageSrc: string
+    onClick: () => void
+    title: string
+}
+
+const Modal = ({ reference, imageSrc, onClick, title }: Partial<ModalProps>) => {
     return (
         <div id="modal" ref={ reference }>
             <div id="modalContainer">

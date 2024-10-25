@@ -6,13 +6,13 @@ export default {
         '^@context/(.*)$': '<rootDir>/src/context/$1',
         '^@declarations/(.*)$': '<rootDir>/src/declarations/$1',
         '^@images/(.*)$': '<rootDir>/src/assets/images/$1',
+        '^@icons/(.*)$': '<rootDir>/src/assets/icons/$1',
         '^@components/(.*)$': '<rootDir>/src/components/$1',
-        '\\.(svg)$': 'jest-transform-stub',
-        '\\.(jpg|jpeg|png|gif)$': 'jest-static-stubs/$1',
-        '\\.(css|less)$': 'identity-obj-proxy'
+        '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+        '\\.(css|less|svg)$': 'identity-obj-proxy'
     },
     transform: {
         "^.+.tsx?$": ['ts-jest', {}],
-        ".+\\.(png|jpg)$": "jest-transform-stub"
+        ".+\\.(png|jpg|jpeg|svg|webp)$": "jest-transform-stub"
     }
 }

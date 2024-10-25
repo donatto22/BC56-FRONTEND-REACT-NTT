@@ -22,7 +22,7 @@ const Dropdown = () => {
 
         const input = e.target as HTMLInputElement
 
-        if(departmentRef.current) departmentRef.current.textContent = input.textContent
+        if(departmentRef.current) (departmentRef.current as HTMLDivElement).textContent = input.textContent
     }
 
     const toggleDepartmentDropdown = () => {

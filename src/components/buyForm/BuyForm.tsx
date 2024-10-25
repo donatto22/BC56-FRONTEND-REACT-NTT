@@ -1,13 +1,15 @@
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './buyForm.css'
-import { validateRegex } from '@utils/validateRegex'
+
 import Dropdown from '@components/dropdown/Dropdown'
+
+import useCart from '@hooks/useCart'
+import Modal from '@components/modal/Modal'
+import { validateRegex } from '@utils/validateRegex'
 
 import warningIcon from '@icons/warning-icon.webp'
 import successIcon from '@icons/success-icon.png'
-import Modal from '@components/modal/Modal'
-import { useNavigate } from 'react-router-dom'
-import useCart from '@hooks/useCart'
 
 const BuyForm = () => {
     const formRef = useRef<HTMLFormElement>(null)

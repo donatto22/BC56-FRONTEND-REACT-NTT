@@ -7,11 +7,11 @@ import Header from "@components/header/Header"
 import './singleProduct.css'
 
 import useDummyjson from "@hooks/useDummyjson"
-import { useCart } from "@context/CartContext"
 
 import bagIcon from '@icons/bag-outline.svg'
 import bicycleIcon from '@icons/bicycle-outline.svg'
 import { Product } from "@declarations/Product"
+import useCart from "@hooks/useCart"
 
 const SingleProduct = () => {
     const { id } = useParams()
