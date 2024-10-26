@@ -1,5 +1,8 @@
-import Products from "@pages/products/Products"
+import Login from "@pages/login/Login"
 import { render } from "./utils/render"
+import Products from "@pages/products/Products"
+import SingleProduct from "@pages/singleProduct/SingleProduct"
+import CartSummary from "@pages/summary/CartSummary"
 
 describe('Verificar que todas las paginas carguen', () => {
     beforeEach(() => {
@@ -8,25 +11,8 @@ describe('Verificar que todas las paginas carguen', () => {
             "name": "Leanne Graham",
             "username": "Bret",
             "slug": "Bret",
-            "email": "Sincere@april.biz",
-            "address": {
-                "street": "Kulas Light",
-                "suite": "Apt. 556",
-                "city": "Gwenborough",
-                "zipcode": "92998-3874",
-                "geo": {
-                    "lat": "-37.3159",
-                    "lng": "81.1496"
-                }
-            },
-            "phone": "1-770-736-8031 x56442",
-            "website": "hildegard.org",
-            "company": {
-                "name": "Romaguera-Crona",
-                "catchPhrase": "Multi-layered client-server neural-net",
-                "bs": "harness real-time e-markets"
-            }
-        };
+            "email": "Sincere@april.biz"
+        }
         
         global.fetch = jest.fn().mockImplementation(() =>
             Promise.resolve({
@@ -39,7 +25,9 @@ describe('Verificar que todas las paginas carguen', () => {
             })
         )
     })
-    
 
+    render('Pagina del login', <Login />)
     render('Pagina de productos', <Products />)
+    render('Pagina de un solo producto seleccionado', <SingleProduct />)
+    render('Pagina del carrito con los productos', <CartSummary />)
 })

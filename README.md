@@ -13,5 +13,4 @@
 
 ✔️ Se deberá testear y abarcar la mayor cobertura de código posible mostrando el coverage (opcional)
 
-### Pending
-⌚ Se deberá testear corectamente cada una de las funcionalidades creadas, componentes, hooks y páginas
+✔️ Se deberá testear corectamente cada una de las funcionalidades creadas, componentes, hooks y páginas
