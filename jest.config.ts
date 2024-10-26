@@ -1,6 +1,7 @@
 export default {
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
+    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
     moduleNameMapper: {
         '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
         '^@context/(.*)$': '<rootDir>/src/context/$1',
@@ -9,6 +10,7 @@ export default {
         '^@icons/(.*)$': '<rootDir>/src/assets/icons/$1',
         '^@components/(.*)$': '<rootDir>/src/components/$1',
         '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+        '^@pages/(.*)$': '<rootDir>/src/pages/$1',
         '\\.(css|less|svg)$': 'identity-obj-proxy'
     },
     transform: {

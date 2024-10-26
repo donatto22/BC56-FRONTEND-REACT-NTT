@@ -12,7 +12,8 @@ export default defineConfig({
       '@declarations': '/src/declarations',
       '@hooks': '/src/hooks',
       '@context': '/src/context',
-      '@utils': '/src/utils'
+      '@utils': '/src/utils',
+      '@pages': '/src/pages'
     }
   }
 })

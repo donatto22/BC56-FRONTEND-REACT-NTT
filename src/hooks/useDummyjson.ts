@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { startTransition, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -36,7 +37,7 @@ const useDummyjson = () => {
     }, [])
 
     const getCategories = useCallback(async (): Promise<Category[]> => {
-        const categories = await get(ApiEndpoints.CATEGORIES)
+        const categories: Category[] = await get(ApiEndpoints.CATEGORIES)
         return categories
     }, [])
 
@@ -45,9 +46,9 @@ const useDummyjson = () => {
         return products
     }, [])
 
-    return Object.freeze({
+    return {
         login, logout, getProducts, getCategories, getProductsByCategory, getProductById
-    })
+    }
 }
 
 export default useDummyjson

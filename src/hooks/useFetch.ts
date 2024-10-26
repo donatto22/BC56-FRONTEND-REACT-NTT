@@ -4,10 +4,9 @@ import { useCallback } from 'react'
 const useFetch = () => {
     const get = useCallback(async (endpoint: string) => {
         const result = await fetch(endpoint)
-        if(!result.ok) throw new Error('No se pudo obtener los datos')
-    
+
         const data = await result.json()
-    
+
         return data
     }, [])
 
@@ -24,9 +23,9 @@ const useFetch = () => {
         return data
     }
 
-    return Object.freeze({
+    return {
         get, post
-    })
+    }
 }
 
 export default useFetch

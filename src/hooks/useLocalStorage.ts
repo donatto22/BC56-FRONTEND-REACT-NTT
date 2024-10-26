@@ -15,9 +15,9 @@ const useLocalStorage = () => {
         localStorage.clear()
     }
 
-    return Object.freeze({
+    return {
         getItem, setItem, removeItem, clear
-    })
+    }
 }
 
 export default useLocalStorage
