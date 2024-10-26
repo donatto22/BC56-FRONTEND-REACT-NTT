@@ -1,6 +1,6 @@
-import { CartProvider } from "@context/CartContext"
-import { act, render as reactRender } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
+import { act, render as reactRender } from "@testing-library/react"
+import { CartProvider } from "@context/CartContext"
 
 export const render = (description: string, component: React.JSX.Element) => {
     it(description, async () => {

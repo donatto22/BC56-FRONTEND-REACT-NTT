@@ -1,4 +1,3 @@
-// Footer.test.tsx
 import '@testing-library/jest-dom'
 
 import { render } from '../utils/render'
@@ -11,7 +10,6 @@ import CartBar from '@components/cartBar/CartBar'
 import Modal from '@components/modal/Modal'
 import ProductCard from '@components/productCard/ProductCard'
 import QuantityOptions from '@components/QuantityOptions/QuantityOptions'
-
 
 describe('Ver si los componentes pueden ser mostrados en pantalla con las importaciones correctas y bien tipados', () => {
     render('Debe mostrar el header', <Header />)
