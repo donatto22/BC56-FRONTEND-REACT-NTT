@@ -56,9 +56,15 @@ const Products = () => {
 
     
     const filterProducts = () => {
+        if (!Array.isArray(categoryFilteredProducts)) {
+            console.warn('categoryFilteredProducts is not an array:', categoryFilteredProducts);
+            return
+        }
+    
         const filtered = categoryFilteredProducts.filter(p =>
             p.title.toLowerCase().includes(search.toLowerCase())
         )
+    
         setSearchFilteredProducts(filtered)
     }
 

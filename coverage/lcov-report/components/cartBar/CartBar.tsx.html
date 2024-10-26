@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">78.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/14</span>
+                <span class='fraction'>11/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">78.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/14</span>
+                <span class='fraction'>11/14</span>
             </div>
         
             
@@ -109,7 +109,12 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -117,11 +122,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,13 +171,18 @@ import './cartBar.css'
 import closeIcon from '@icons/close-outline.svg'
 import ItemCard from './ItemCard'
 import NoCartProducts from '@components/noCartProducts/NoCartProducts'
-import { useCart } from '@context/CartContext'
+import useCart from '@hooks/useCart'
 &nbsp;
-const CartBar = <span class="fstat-no" title="function not covered" >({</span> reference, onClick }: { reference: React.RefObject&lt;HTMLDivElement&gt;, onClick: () =&gt; void }) =&gt; {
-    const { cartItems, clearCart } = <span class="cstat-no" title="statement not covered" >useCart()</span>
-    const navigate = <span class="cstat-no" title="statement not covered" >useNavigate()</span>
+interface CartBarProps {
+    reference: React.RefObject&lt;HTMLDivElement&gt;
+    onClick: () =&gt; void
+}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+const CartBar = ({ reference, onClick }: Partial&lt;CartBarProps&gt;) =&gt; {
+    const { cartItems, clearCart } = useCart()
+    const navigate = useNavigate()
+&nbsp;
+    return (
         &lt;div id="cartBar" ref={reference}&gt;
             &lt;div id="cart-header"&gt;
                 &lt;h1&gt;Carrito&lt;/h1&gt;
@@ -180,7 +195,7 @@ const CartBar = <span class="fstat-no" title="function not covered" >({</span> r
             &lt;div id="cart-main"&gt;
                 {
                     cartItems.length != 0 ?
-                    cartItems.map(<span class="fstat-no" title="function not covered" >item </span>=&gt; (
+<span class="branch-0 cbranch-no" title="branch not covered" >                    cartItems.map(<span class="fstat-no" title="function not covered" >item </span>=&gt; (</span>
 <span class="cstat-no" title="statement not covered" >                        &lt;ItemCard key={ item.id } i</span>tem={ item }/&gt;
                     )) :
                     &lt;NoCartProducts /&gt;
@@ -189,7 +204,7 @@ const CartBar = <span class="fstat-no" title="function not covered" >({</span> r
 &nbsp;
             {
                 cartItems.length != 0 &amp;&amp;
-                &lt;div id="cart-footer"&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;div id="cart-footer"&gt;</span>
                     &lt;p&gt;Total:&lt;/p&gt;
                     &lt;div id="cart-actions"&gt;
                         &lt;button id='buyButton' onClick={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >navigate('/summary')}</span>&gt;Comprar&lt;/button&gt;
@@ -208,7 +223,7 @@ export default CartBar</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-10-25T04:32:09.453Z
+                at 2024-10-26T01:40:06.811Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

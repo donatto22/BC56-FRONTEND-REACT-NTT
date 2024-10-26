@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.17% </span>
+                <span class="strong">73.91% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/23</span>
+                <span class='fraction'>17/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>3/7</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.17% </span>
+                <span class="strong">73.91% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/23</span>
+                <span class='fraction'>17/23</span>
             </div>
         
             
@@ -164,32 +164,32 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -253,8 +253,8 @@ import User from './User'
 import logo from '@images/logo.png'
 import searchIcon from '@icons/search-outline.svg'
 import cartIcon from '@icons/cart-outline.svg'
-import { useCart } from '@context/CartContext'
 import { Product } from '@declarations/Product'
+import useCart from '@hooks/useCart'
 &nbsp;
 interface HeaderProps {
     products: Product[],
@@ -264,21 +264,21 @@ interface HeaderProps {
 &nbsp;
 const Header = ({ products, search, setSearch }: Partial&lt;HeaderProps&gt;): React.JSX.Element =&gt; {
     const location = useLocation()
-    const cartBarRef = <span class="cstat-no" title="statement not covered" >useRef(null)</span>
+    const cartBarRef = useRef(null)
 &nbsp;
-    const { cartItems } = <span class="cstat-no" title="statement not covered" >useCart()</span>
+    const { cartItems } = useCart()
 &nbsp;
-    const handleSearch = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
+    const handleSearch = <span class="fstat-no" title="function not covered" >(e</span>: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {
 <span class="cstat-no" title="statement not covered" >        setSearch &amp;&amp; setSearch(e.target.value)</span>
     }
 &nbsp;
-    const toggleCart = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+    const toggleCart = <span class="fstat-no" title="function not covered" >() =</span>&gt; {
 <span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if(cartBarRef.current) {</span>
             (<span class="cstat-no" title="statement not covered" >cartBarRef.current as HTMLDivElement).classList.toggle('cartBar-open')</span>
         }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;header&gt;
             &lt;nav&gt;
                 &lt;ol&gt;
@@ -295,7 +295,7 @@ const Header = ({ products, search, setSearch }: Partial&lt;HeaderProps&gt;): Re
 &nbsp;
                                 &lt;datalist id="productsList"&gt;
                                     {
-                                        products &amp;&amp; products.map(<span class="fstat-no" title="function not covered" >p </span>=&gt; (
+                                        products &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >products.map(<span class="fstat-no" title="function not covered" >p </span>=&gt; (</span>
 <span class="cstat-no" title="statement not covered" >                                            &lt;option key={p.id} v</span>alue={p.title}&gt;&lt;/option&gt;
                                         ))
                                     }
@@ -337,7 +337,7 @@ export default Header</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-10-25T04:32:09.453Z
+                at 2024-10-26T01:40:06.811Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
