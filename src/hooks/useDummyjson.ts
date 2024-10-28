@@ -8,6 +8,8 @@ import { ApiEndpoints } from "@declarations/ApiEndpoints"
 import { DummyToken } from "@declarations/DummyToken"
 import { Product, ProductResponse } from "@declarations/Product"
 import { Category } from "@declarations/Category"
+import { toast } from "sonner"
+import { ErrorMessages } from "@declarations/ErrorMessages"
 
 const useDummyjson = () => {
     const { get, post } = useFetch()
@@ -15,8 +17,16 @@ const useDummyjson = () => {
     const navigator = useNavigate()
 
     const login = async (data: object) => {
-        const session: DummyToken = await post(ApiEndpoints.LOGIN, data)
-        return { session }
+        let session: DummyToken
+        
+        try {
+            session = await post(ApiEndpoints.LOGIN, data)
+            toast.success('Ingreso exitoso')
+            return { session }
+        } catch {
+            toast.error('Usuario o contraseña incorrectos')
+            throw new Error(ErrorMessages.LOGIN_ERROR)
+        }
     }
 
     const logout = () => {

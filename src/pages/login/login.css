@@ -1,10 +1,5 @@
 #loginBackground {
-    display: flex;
     height: 100vh;
-}
-
-#loginBackground > div {
-    width: 50%;
 }
 
 #image {
@@ -13,6 +8,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    height: 100%;
 }
 
 #loginForm {
@@ -21,19 +17,17 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 2em;
+    border-radius: 20px;
 }
 
 /* form */
 #loginForm > form {
-    padding: 2em;
+    margin-top: 2em;
     border-radius: 1em;
     display: flex;
     flex-direction: column;
     gap: 2em;
-}
-
-#loginForm img {
-    filter: invert(50%);
 }
 
 .inputGroup input, #submit {
@@ -70,4 +64,36 @@
 
 #submit:active {
     background-color: #1D3A3E;
+}
+
+@media (width > 550px) {
+    #loginBackground {
+        display: flex;
+    }
+
+    #loginBackground > div {
+        width: 50%;
+    }
+
+    #loginForm img {
+        filter: invert(50%);
+    }
+}
+
+@media (width < 550px) {
+    #loginForm img {
+        filter: invert(100%);
+    }
+
+    #loginBackground {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #loginForm {
+        background-color: rgba(255, 255, 255, .7);
+        backdrop-filter: blur(10px);
+        position: absolute;
+    }
 }

@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { Toaster } from 'sonner'
 import RouterGuard from './RouterGuard'
 import Loading from '@components/loading/Loading'
 
@@ -12,6 +13,7 @@ const CartSummary = lazy(async () => await import('../pages/summary/CartSummary'
 const AppRouter = (): React.JSX.Element => {
     return (
         <Suspense fallback={ <Loading /> }>
+            <Toaster richColors />
             <Routes>
                 <Route element={<RouterGuard />}>
                     <Route index element={<Products />} />
