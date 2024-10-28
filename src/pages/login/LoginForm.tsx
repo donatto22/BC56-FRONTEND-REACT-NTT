@@ -1,16 +1,17 @@
 
 import { useRef } from "react"
-
 import { useNavigate } from "react-router-dom"
-import useLocalStorage from "@hooks/useLocalStorage"
+
 import useDummyjson from "@hooks/useDummyjson"
+import { Paths } from "@declarations/Paths"
+import useSessionStorage from "@hooks/useSessionStorage"
 
 const LoginForm = (): React.JSX.Element => {
     const formRef = useRef(null)
     const navigator = useNavigate()
 
     const { login } = useDummyjson()
-    const { setItem } = useLocalStorage()
+    const { setItem } = useSessionStorage()
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -22,8 +23,8 @@ const LoginForm = (): React.JSX.Element => {
 
             const { session } = await login(formObject)
             
+            navigator(Paths.products)
             setItem('token', session.accessToken)
-            navigator('/')
         }
     }
 

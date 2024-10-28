@@ -1,19 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { startTransition, useCallback } from "react"
+import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
+import { toast } from "sonner"
 
-import useLocalStorage from "./useLocalStorage"
 import useFetch from "./useFetch"
+import { Product, ProductResponse } from "@declarations/Product"
+import { ErrorMessages } from "@declarations/ErrorMessages"
 import { ApiEndpoints } from "@declarations/ApiEndpoints"
 import { DummyToken } from "@declarations/DummyToken"
-import { Product, ProductResponse } from "@declarations/Product"
 import { Category } from "@declarations/Category"
-import { toast } from "sonner"
-import { ErrorMessages } from "@declarations/ErrorMessages"
+import useSessionStorage from "./useSessionStorage"
+import { Paths } from "@declarations/Paths"
 
 const useDummyjson = () => {
     const { get, post } = useFetch()
-    const { removeItem } = useLocalStorage()
+    const { removeItem } = useSessionStorage()
     const navigator = useNavigate()
 
     const login = async (data: object) => {
@@ -31,9 +32,8 @@ const useDummyjson = () => {
 
     const logout = () => {
         removeItem('token')
-        startTransition(() => {
-            navigator('/login')
-        })
+        navigator(Paths.login)
+        toast.success('Has cerrado sesión')
     }
 
     const getProducts = useCallback(async (): Promise<ProductResponse> => {

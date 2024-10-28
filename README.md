@@ -11,12 +11,13 @@
 
 ✔️ Si se presiona F5 se debe mantener la información de la sesión. (Guardar el token en session storage)
 
+✔️ En el menú debe existir un link que tenga por texto "Cerrar sesión" que además redirecciona al login.
+
 ### Pending
 ⏱ EL login deberá tener la función de "Olvidé contraseña", el cual abrirá una ventana modal que permita colocar el correo electrónico. Se debe validar que sea un correo válido. Se debe mostrar otro modal que indica "Se envió la información al correo ingresado"
 
 ⏱ Crear un HOC que permita visualizar la página solo si se ha iniciado sesión, de lo contrario se redirecciona.
 
-⏱ En el menú debe existir un link que tenga por texto "Cerrar sesión" que además redirecciona al login.
 
 ⏱ Se debe crear un hook para el paginado del contenido.
 

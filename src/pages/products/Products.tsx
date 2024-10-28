@@ -70,6 +70,7 @@ const Products = () => {
 
     useEffect(() => {
         filterProducts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search, categoryFilteredProducts])
 
     return (
