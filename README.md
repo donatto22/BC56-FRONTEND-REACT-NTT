@@ -17,9 +17,9 @@
 
 ✔️ EL login deberá tener la función de "Olvidé contraseña", el cual abrirá una ventana modal que permita colocar el correo electrónico. Se debe validar que sea un correo válido. Se debe mostrar otro modal que indica "Se envió la información al correo ingresado"
 
+✔️ Se debe crear un hook para el paginado del contenido.
+
 ### Pending
 ⏱ Crear un HOC que permita visualizar la página solo si se ha iniciado sesión, de lo contrario se redirecciona.
-
-⏱ Se debe crear un hook para el paginado del contenido.
 
 ⏱ Se deben agregar las pruebas unitarias a las nuevas funcionalidades agregadas.
