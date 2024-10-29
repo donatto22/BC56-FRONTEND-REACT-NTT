@@ -2,12 +2,12 @@ import { Navigate } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import './login.css'
 
-import useLocalStorage from '@hooks/useLocalStorage'
 import loginBg from '@images/loginbg.jpg'
 import logo from '@images/logo.png'
+import useSessionStorage from '@hooks/useSessionStorage'
 
 const Login = (): React.JSX.Element => {
-    const { getItem } = useLocalStorage()
+    const { getItem } = useSessionStorage()
     const token = getItem('token')
 
     return (

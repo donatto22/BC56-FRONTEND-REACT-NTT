@@ -1,12 +1,15 @@
 import { BrowserRouter } from "react-router-dom"
 import AppRouter from "./router/AppRouter"
 import { CartProvider } from "./context/CartContext"
+import { UserProvider } from "@context/UserContext"
 
 const App = () => {
     return (
         <CartProvider>
             <BrowserRouter>
-                <AppRouter />
+                <UserProvider>
+                    <AppRouter />
+                </UserProvider>
             </BrowserRouter>
         </CartProvider>
     )

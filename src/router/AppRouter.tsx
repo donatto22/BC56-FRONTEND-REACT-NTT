@@ -10,18 +10,18 @@ const Products = lazy(async () => await import('../pages/products/Products'))
 const SingleProduct = lazy(async () => await import('../pages/singleProduct/SingleProduct'))
 const CartSummary = lazy(async () => await import('../pages/summary/CartSummary'))
 
-const GuardProducts = RouterGuard(Products)
-const GuardCartSummary = RouterGuard(CartSummary)
-const GuardSingleProduct = RouterGuard(SingleProduct)
+const GuardProducts = <RouterGuard WrappedComponent={ <Products/> } />
+const GuardCartSummary = <RouterGuard WrappedComponent={ <CartSummary/> } />
+const GuardSingleProduct = <RouterGuard WrappedComponent={ <SingleProduct/> } />
 
 const AppRouter = (): React.JSX.Element => {
     return (
         <Suspense fallback={ <Loading /> }>
             <Toaster richColors />
             <Routes>
-                <Route index element={<GuardProducts />} />
-                <Route path='/products/:id' element={<GuardSingleProduct />} />
-                <Route path='/summary' element={<GuardCartSummary />} />
+                <Route path='/' element={ GuardProducts } />
+                <Route path='/products/:id' element={ GuardCartSummary } />
+                <Route path='/summary' element={ GuardSingleProduct } />
 
                 {/* <Route index element={<Home />} /> */}
                 <Route path='/login' element={<Login />} />

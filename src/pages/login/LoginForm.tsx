@@ -1,20 +1,24 @@
-
-import { useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import useDummyjson from "@hooks/useDummyjson"
 import { Paths } from "@declarations/Paths"
 import useSessionStorage from "@hooks/useSessionStorage"
 import RecoverPasswordModal from "@components/RecoverPassword/RecoverPasword"
+import { UserContext } from "@context/UserContext"
+import { toast } from "sonner"
+import { ErrorMessages } from "@declarations/ErrorMessages"
 
 const LoginForm = (): React.JSX.Element => {
+    const [recoverPasswordModal, setRecoverPasswordModal] = useState<boolean>(false)
+    const userContext = useContext(UserContext)
     const formRef = useRef(null)
     const navigator = useNavigate()
-
-    const { login } = useDummyjson()
     const { setItem } = useSessionStorage()
 
-    const [recoverPasswordModal, setRecoverPasswordModal] = useState<boolean>(false)
+    if (!userContext) {
+        toast.error(ErrorMessages.CONTEXT_ERROR)
+        throw new Error(ErrorMessages.CONTEXT_ERROR)
+    }
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -24,10 +28,11 @@ const LoginForm = (): React.JSX.Element => {
 
             const formObject = Object.fromEntries(form.entries())
 
-            const { session } = await login(formObject)
+            await userContext.login(formObject)
             
+            userContext.session && setItem('token', userContext.session.accessToken as string)
+
             navigator(Paths.products)
-            setItem('token', session.accessToken)
         }
     }
 
