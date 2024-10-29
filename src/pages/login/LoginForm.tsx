@@ -1,10 +1,11 @@
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import useDummyjson from "@hooks/useDummyjson"
 import { Paths } from "@declarations/Paths"
 import useSessionStorage from "@hooks/useSessionStorage"
+import RecoverPasswordModal from "@components/RecoverPassword/RecoverPasword"
 
 const LoginForm = (): React.JSX.Element => {
     const formRef = useRef(null)
@@ -12,6 +13,8 @@ const LoginForm = (): React.JSX.Element => {
 
     const { login } = useDummyjson()
     const { setItem } = useSessionStorage()
+
+    const [recoverPasswordModal, setRecoverPasswordModal] = useState<boolean>(false)
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -29,6 +32,8 @@ const LoginForm = (): React.JSX.Element => {
     }
 
     return (
+        <>
+        { recoverPasswordModal && <RecoverPasswordModal setModal={ setRecoverPasswordModal } /> }
         <form ref={formRef} onSubmit={ handleLogin }>
             <div className="inputGroup">
                 <input required type="text" id="username" name="username" placeholder="Usuario" />
@@ -37,9 +42,12 @@ const LoginForm = (): React.JSX.Element => {
             <div className="inputGroup">
                 <input required type="password" id="password" name="password" placeholder="Contraseña" />
             </div>
+            
+            <span id="forgotPassword" onClick={ () => setRecoverPasswordModal(prev => !prev)}>Olvidé mi contraseña</span>
 
             <input id="submit" type="submit" value="Ingresar" />
         </form>
+        </>
     )
 }
 

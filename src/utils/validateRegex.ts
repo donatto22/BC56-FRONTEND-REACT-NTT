@@ -5,3 +5,6 @@ export const validateRegex = (e: React.FormEvent, regex: RegExp) => {
         input.value = input.value.slice(0, -1)
     }
 }
+
+export const onlyLetters = (e: React.FormEvent) => {
+}

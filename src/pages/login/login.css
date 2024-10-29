@@ -39,23 +39,19 @@
 .inputGroup input {
     width: 260px;
     background-color: transparent;
-    border: 1px solid rgb(86, 148, 169);
+    border: 1px solid #5694a9;
 }
 
 #submit {
-    background-color: var(--smooth-green);
     border: 0;
+    cursor: pointer;
+    background-color: var(--smooth-green);
     transition: background-color .1s linear, color .1s linear;
 }
 
 .inputGroup input:valid {
     background-color: hsl(173, 33%, 90%);
 }
-/* 
-.inputGroup input:invalid {
-    background-color: hsl(0, 93%, 94%);
-    border-color: hsl(0, 100%, 74%);
-} */
 
 #submit:hover {
     background-color: hsl(187, 36%, 40%);
@@ -64,6 +60,14 @@
 
 #submit:active {
     background-color: #1D3A3E;
+}
+
+#forgotPassword {
+    color: hsl(195, 53%, 40%);
+    text-decoration: underline hsl(195, 53%, 60%);
+    text-underline-offset: 6px;
+    cursor: pointer;
+    user-select: none;
 }
 
 @media (width > 550px) {
