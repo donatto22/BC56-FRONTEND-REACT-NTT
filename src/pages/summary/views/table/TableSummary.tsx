@@ -7,7 +7,8 @@ const TableSummary = (): React.JSX.Element => {
     const { cartItems, totalPrice } = useCart()
 
     return (
-        <table id="tableSummary">
+        <div className="table-container">
+            <table id="tableSummary">
             <thead>
                 <tr>
                     <th>Imagen</th>
@@ -34,6 +35,7 @@ const TableSummary = (): React.JSX.Element => {
                 </tr>
             </tfoot>
         </table>
+        </div>
     )
 }
 

@@ -19,19 +19,19 @@ const GridSummary = () => {
                         <div className="gridItem" key={item.id}>
                             <div className="gridItemProduct">
                                 <div className="gridItemImage">
-                                    <img src={item.thumbnail} alt={item.title} />
+                                    <img src={ item.thumbnail } alt={ item.title } />
                                 </div>
 
                                 <div className="itemDescription">
                                     <h3>{item.title}</h3>
                                     <div className="rating">
-                                        <img width={20} src={starIcon} alt="Flaticon Star Icon" />
-                                        <p>{item.rating}</p>
+                                        <img width={20} src={ starIcon } alt="Flaticon Star Icon" />
+                                        <p>{ item.rating }</p>
                                     </div>
 
                                     <div className="pricing">
-                                        <img width={20} src={dollarIcon} alt="Flaticon Dollar Icon" />
-                                        <p>Precio / Unidad: <b>S/. {item.price}</b></p>
+                                        <img width={20} src={ dollarIcon } alt="Flaticon Dollar Icon" />
+                                        <p>Precio / Unidad: <b>S/. { item.price }</b></p>
                                     </div>
 
                                     <button className="reviews" onClick={ () => navigate('/products/' + item.id) }>Ver Producto</button>

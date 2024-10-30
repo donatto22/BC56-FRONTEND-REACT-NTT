@@ -98,3 +98,43 @@
 .totalPricePerUnit > p {
     font-size: 20px;
 }
+
+@media (width < 1100px) {
+    /* #productsGridContainer {
+        
+    } */
+
+    .gridItemImage img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .gridItem {
+        padding: 1em 1em;
+    }
+}
+
+@media (width < 890px) {
+    .gridItemImage img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .gridItem {
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+        padding: 2em 0;
+    }
+
+    .gridItemProduct {
+        flex-direction: column;
+    }
+}
+
+@media (width < 570px) {
+    #productsGridContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+}

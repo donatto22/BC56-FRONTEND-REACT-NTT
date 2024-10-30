@@ -1,4 +1,10 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
 #tableSummary {
+    min-width: 900px;
     width: var(--width);
     margin: 0 auto;
     border-collapse: collapse;
