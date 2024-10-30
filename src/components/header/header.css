@@ -10,7 +10,7 @@ img {
 }
 
 #search {
-    width: clamp(200px, 80%, 500px);
+    width: clamp(200px, 80%, 600px);
     background-color: rgb(240, 240, 240);
     padding-right: 20px;
 }
@@ -97,11 +97,17 @@ nav ol {
     flex-direction: column;
 }
 
+#profile {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: 10px;
+}
+
 #user-options {
     position: absolute;
     background-color: #fff;
-    margin-top: 2em;
-    right: 1em;
+    margin-top: 2.4em;
     padding: 10px;
     display: none;
     background-color: white;

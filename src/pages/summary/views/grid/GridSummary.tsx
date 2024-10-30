@@ -40,7 +40,7 @@ const GridSummary = () => {
 
                             <div className="gridActions">
                                 <div className="totalPricePerUnit">
-                                    <p> S/. { item.quantity * item.price } </p>
+                                    <p> S/. { (item.quantity * item.price).toFixed(2) } </p>
                                     <QuantityOptions item={ item }/>
                                 </div>
                                 <button className='cartDeleteButton' onClick={() => removeFromCart(item.id)}>

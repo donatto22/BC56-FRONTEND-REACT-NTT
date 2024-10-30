@@ -30,7 +30,10 @@ const User = () => {
     
     return (
         <div id="user" onClick={ toggleUserOptionsVisibility }>
-            <img src={ userIcon } alt="User" width='24px' />
+            <div id="profile">
+                <img src={ userIcon } alt="User" width='24px' />
+                Bienvenido/a {  userContext.session?.firstName }
+            </div>
             <div id='user-options' ref={userOptionsRef}>
                 <div onClick={ handleLogout }>Cerrar Sesión</div>
             </div>

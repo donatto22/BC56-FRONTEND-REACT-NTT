@@ -23,7 +23,6 @@
 
 ✔️ Crear un HOC que permita visualizar la página solo si se ha iniciado sesión, de lo contrario se redirecciona.
 
-### Pending
-⏱ En el menu debe estar "Bienvenido + nombre" y mantenerse en todas las pantallas
+✔️ En el menu debe estar "Bienvenido + nombre" y mantenerse en todas las pantallas
 
-⏱ Se deben agregar las pruebas unitarias a las nuevas funcionalidades agregadas.
+✔️ Se deben agregar las pruebas unitarias a las nuevas funcionalidades agregadas.

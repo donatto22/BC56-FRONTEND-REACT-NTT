@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import closeIcon from '@icons/close-outline.svg'
 import { toast } from 'sonner'
 
-const RecoverPasswordModal = ({ setModal }: { setModal: Dispatch<SetStateAction<boolean>> }) => {
+const RecoverPasswordModal = ({ setModal }: { setModal?: Dispatch<SetStateAction<boolean>> }) => {
     const [sendEmail, setSendEmail] = useState<boolean>(false)
     const { register, handleSubmit, formState: { errors } } = useForm()
 
@@ -20,7 +20,7 @@ const RecoverPasswordModal = ({ setModal }: { setModal: Dispatch<SetStateAction<
 
     return (
         <div id="recoverPasswordModal">
-            <div id="close" onClick={ () => setModal(prev => !prev) }>
+            <div id="close" onClick={ () => setModal && setModal(prev => !prev) }>
                 <img src={ closeIcon } alt="Close icon" width={30} />
             </div>
 
@@ -42,7 +42,7 @@ const RecoverPasswordModal = ({ setModal }: { setModal: Dispatch<SetStateAction<
 
                     <div id="actionButtons">
                         <button type='submit'>Enviar</button>
-                        <button type='button' onClick={ () => setModal(prev => !prev) }>Cancelar</button>
+                        <button type='button' onClick={ () => setModal && setModal(prev => !prev) }>Cancelar</button>
                     </div>
                 </form>
             </div>

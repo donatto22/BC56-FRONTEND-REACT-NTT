@@ -26,11 +26,11 @@ export const UserProvider = ({ children }: { children: ReactNode }): React.JSX.E
     
     const login = async (data: object) => {       
         try {
-            const session: DummyToken = await post(ApiEndpoints.LOGIN, data)
+            const dummySession: DummyToken = await post(ApiEndpoints.LOGIN, data)
             toast.success('Ingreso exitoso')
-            setSession(session)
+            setSession(dummySession)
             
-            setItem('token', session.accessToken)
+            setItem('token', dummySession.accessToken)
             navigator(Paths.products)
         } catch {
             toast.error(ErrorMessages.LOGIN_ERROR)

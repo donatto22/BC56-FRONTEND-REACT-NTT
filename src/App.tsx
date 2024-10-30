@@ -5,13 +5,13 @@ import { UserProvider } from "@context/UserContext"
 
 const App = () => {
     return (
-        <CartProvider>
-            <BrowserRouter>
+        <BrowserRouter>
+            <CartProvider>
                 <UserProvider>
                     <AppRouter />
                 </UserProvider>
-            </BrowserRouter>
-        </CartProvider>
+            </CartProvider>
+        </BrowserRouter>
     )
 }
 

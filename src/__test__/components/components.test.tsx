@@ -10,6 +10,7 @@ import CartBar from '@components/cartBar/CartBar'
 import Modal from '@components/modal/Modal'
 import ProductCard from '@components/productCard/ProductCard'
 import QuantityOptions from '@components/QuantityOptions/QuantityOptions'
+import RecoverPasswordModal from '@components/RecoverPassword/RecoverPasword'
 
 describe('Ver si los componentes pueden ser mostrados en pantalla con las importaciones correctas y bien tipados', () => {
     render('Debe mostrar el header', <Header />)
@@ -21,4 +22,5 @@ describe('Ver si los componentes pueden ser mostrados en pantalla con las import
     render('Debe mostrar el Modal', <Modal />)
     render('Debe mostrar el Card del Producto', <ProductCard />)
     render('Debe mostrar el Card del Producto', <QuantityOptions />)
+    render('Debe mostrar el modal para recuperar contraseña', <RecoverPasswordModal />)
 })

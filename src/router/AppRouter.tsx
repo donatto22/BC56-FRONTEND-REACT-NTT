@@ -20,8 +20,8 @@ const AppRouter = (): React.JSX.Element => {
             <Toaster richColors />
             <Routes>
                 <Route path='/' element={ GuardProducts } />
-                <Route path='/products/:id' element={ GuardCartSummary } />
-                <Route path='/summary' element={ GuardSingleProduct } />
+                <Route path='/products/:id' element={ GuardSingleProduct } />
+                <Route path='/summary' element={ GuardCartSummary } />
 
                 {/* <Route index element={<Home />} /> */}
                 <Route path='/login' element={<Login />} />

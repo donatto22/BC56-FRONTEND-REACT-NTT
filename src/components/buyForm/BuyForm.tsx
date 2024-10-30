@@ -6,7 +6,7 @@ import Dropdown from '@components/dropdown/Dropdown'
 
 import useCart from '@hooks/useCart'
 import Modal from '@components/modal/Modal'
-import { validateRegex } from '@utils/validateRegex'
+import { onlyLetters, validateAddress, peruvianPhone } from '@utils/validateRegex'
 
 import warningIcon from '@icons/warning-icon.webp'
 import successIcon from '@icons/success-icon.png'
@@ -44,7 +44,7 @@ const BuyForm = () => {
 
     const successProcess = () => {
         clearCart()
-        navigate('/products')
+        navigate('/')
     }
 
     return (
@@ -59,12 +59,12 @@ const BuyForm = () => {
                 <div className="formGroup">
                     <div className="buyFormGroup">
                         <label>Nombres</label>
-                            <input required onChange={ (e) => validateRegex(e, /^[a-zA-ZñÑ\s]*$/) } maxLength={40} type="text" name='name' placeholder='Ingresa tus nombres' />
+                        <input required onChange={ (e) => onlyLetters(e) } maxLength={40} type="text" name='name' placeholder='Ingresa tus nombres' />
                     </div>
 
                     <div className="buyFormGroup">
                         <label>Apellidos</label>
-                        <input required onChange={ (e) => validateRegex(e, /^[a-zA-ZñÑ\s]*$/) } maxLength={40} type="text" name='lastname' placeholder='Ingresa tus Apellidos' />
+                        <input required onChange={ (e) => onlyLetters(e) } maxLength={40} type="text" name='lastname' placeholder='Ingresa tus Apellidos' />
                     </div>
                 </div>
 
@@ -75,17 +75,17 @@ const BuyForm = () => {
 
                 <div className="buyFormGroup">
                     <label>Dirección</label>
-                    <input onChange={ (e) => validateRegex(e, /^[a-zA-ZñÑ0-9\s.-]*$/) } maxLength={50} type="text" name='address' placeholder='Ingresa tus nombres' />
+                    <input required onChange={ (e) => validateAddress(e) } maxLength={50} type="text" name='address' placeholder='Ingresa tus nombres' />
                 </div>
 
                 <div className="buyFormGroup">
                     <label>Refencia</label>
-                    <input onChange={ (e) => validateRegex(e, /^[a-zA-ZñÑ0-9\s.-]*$/) } type="text" name='reference' placeholder='Ingresa una referencia' />
+                    <input required onChange={ (e) => validateAddress(e) } type="text" name='reference' placeholder='Ingresa una referencia' />
                 </div>
 
                 <div className="buyFormGroup">
                     <label>Celular <i>Solo numeros y Comienza por 9</i></label>
-                    <input onChange={ (e) => validateRegex(e, /^9\d{0,8}$/) } type="text" name='phone' placeholder='Ingresa tus nombres' />
+                    <input required onChange={ (e) => peruvianPhone(e) } type="text" name='phone' placeholder='Ingresa tus nombres' />
                 </div>
 
                 <div className="buyFormGroup">
