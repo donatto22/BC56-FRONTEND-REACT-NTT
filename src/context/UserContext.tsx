@@ -1,13 +1,14 @@
-import { createContext,  useState, ReactNode } from 'react'
+import { createContext,  useState, ReactNode, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
-import useSessionStorage from '@hooks/useSessionStorage'
+
 import useFetch from '@hooks/useFetch'
+import useSessionStorage from '@hooks/useSessionStorage'
 
 import { DummyToken } from '@declarations/DummyToken'
 import { ErrorMessages } from '@declarations/ErrorMessages'
 import { ApiEndpoints } from '@declarations/ApiEndpoints'
 import { Paths } from '@declarations/Paths'
-import { useNavigate } from 'react-router-dom'
 
 interface UserContextType {
     session?: DummyToken
@@ -21,8 +22,18 @@ export const UserProvider = ({ children }: { children: ReactNode }): React.JSX.E
     const [session, setSession] = useState<DummyToken>()
 
     const { post } = useFetch()
-    const { setItem, removeItem } = useSessionStorage()
+    const { setItem, removeItem, getItem } = useSessionStorage()
     const navigator = useNavigate()
+
+    const verifyToken = () => {
+        const isSession = getItem('session')
+        isSession && setSession(JSON.parse(isSession) as DummyToken)
+    }
+
+    useEffect(() => {
+        verifyToken()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     
     const login = async (data: object) => {       
         try {
@@ -31,6 +42,8 @@ export const UserProvider = ({ children }: { children: ReactNode }): React.JSX.E
             setSession(dummySession)
             
             setItem('token', dummySession.accessToken)
+            setItem('session', JSON.stringify(dummySession))
+
             navigator(Paths.products)
         } catch {
             toast.error(ErrorMessages.LOGIN_ERROR)
@@ -40,6 +53,7 @@ export const UserProvider = ({ children }: { children: ReactNode }): React.JSX.E
 
     const logout = () => {
         removeItem('token')
+        removeItem('session')
         toast.success('Has cerrado sesión')
         navigator(Paths.login)
     }
