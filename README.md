@@ -15,6 +15,6 @@ You can see here the different versions of the same project idea.
 2. Javascript [feature/javascript](https://github.com/donatto22/BC56-FRONTEND-REACT-NTT/tree/feature/javascript)
 3. Typescript [feature/typescript](https://github.com/donatto22/BC56-FRONTEND-REACT-NTT/tree/feature/typescript)
 4. React Foundations [feature/react-fundamentos](https://github.com/donatto22/BC56-FRONTEND-REACT-NTT/tree/feature/react-fundamentos)
-5. React Implementation `feature/react-implementacion`
-6. Unit test `feature/pruebas-unitarias`
-7. Integrative Project `feature/proyecto-integrador`
+5. React Implementation [feature/react-implementacipn](https://github.com/donatto22/BC56-FRONTEND-REACT-NTT/tree/feature/react-implementacion)
+6. Unit test [feature/react-pruebas-unitarias](https://github.com/donatto22/BC56-FRONTEND-REACT-NTT/tree/feature/react-pruebas-unitarias)
+7. Integrative Project [feature/react-pruebas-unitarias](https://github.com/donatto22/BC56-FRONTEND-REACT-NTT/tree/feature/proyecto-integrador)
